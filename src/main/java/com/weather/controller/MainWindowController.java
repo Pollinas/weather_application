@@ -1,5 +1,8 @@
 package com.weather.controller;
 
+import com.weather.controller.service.WeatherService;
+import com.weather.controller.service.WeatherServiceMock;
+import com.weather.model.Weather;
 import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -7,15 +10,17 @@ import javafx.scene.layout.AnchorPane;
 
 public class MainWindowController {
 
-    protected ViewFactory viewFactory;
+    private ViewFactory viewFactory;
+    private WeatherService weatherServiceMock;
     private String fxmlName;
 
-    public MainWindowController(ViewFactory viewFactory, String fxmlName) {
+    public MainWindowController(ViewFactory viewFactory, String fxmlName, WeatherService weatherService) {
         this.viewFactory = viewFactory;
         this.fxmlName = fxmlName;
+        this.weatherServiceMock = weatherService;
     }
     public String getFxmlName() {
-        return fxmlName;
+        return "/fxml/" + fxmlName;
     }
 
     //fxml stuff
@@ -34,7 +39,11 @@ public class MainWindowController {
 
     @FXML
     void firstCityButtonAction() {
-        System.out.println("first city");
+
+        for(Weather weather: weatherServiceMock.getWeather("")){
+            System.out.println(weather);
+        }
+
     }
 
     @FXML
