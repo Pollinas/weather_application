@@ -40,7 +40,7 @@ public class MainWindowController {
     @FXML
     void firstCityButtonAction() {
 
-        for(Weather weather: weatherServiceMock.getWeather("")){
+        for(Weather weather: weatherServiceMock.getWeather("Berlin")){
             System.out.println(weather);
         }
 
@@ -48,6 +48,9 @@ public class MainWindowController {
 
     @FXML
     void secondCityButtonAction() {
-        System.out.println("second city");
+        for(Weather weather: weatherServiceMock.getWeather("Szczecin")){
+            System.out.println(weather);
+        }
+
     }
 }
