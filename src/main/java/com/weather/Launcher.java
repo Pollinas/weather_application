@@ -1,5 +1,6 @@
 package com.weather;
 
+import com.weather.view.ViewFactory;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -13,12 +14,8 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-//        var javaVersion = SystemInfo.javaVersion();
-//        var javafxVersion = SystemInfo.javafxVersion();
 
-        var label = new Label("Hello, JavaFX " + ", running on Java " +  ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+        ViewFactory viewFactory = new ViewFactory();
+        viewFactory.showMainWindow();
     }
 }
