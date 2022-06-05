@@ -33,6 +33,7 @@ public class ViewFactory {
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setTitle("Weather application");
         stage.show();
     }
 }
