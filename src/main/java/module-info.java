@@ -3,6 +3,7 @@ module com.weather {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.web;
+    requires com.google.gson;
 
     opens com.weather;
     opens com.weather.view;

@@ -1,16 +1,43 @@
 package com.weather.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class Weather {
+    private double dayTemperature;
 
-    private City city;
-    private List<DailyWeather> list;
+    public double getDayTemperature() {
+        return dayTemperature;
+    }
 
+    public void setDayTemperature(double dayTemperature) {
+        this.dayTemperature = dayTemperature;
+    }
 
-//    @Override
-//    public String toString() {
-//        //return "Date: " + date + " temperature: " + temperature + " city: " + city;
-//    }
+    public double getNightTemperature() {
+        return nightTemperature;
+    }
+
+    public void setNightTemperature(double nightTemperature) {
+        this.nightTemperature = nightTemperature;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    private double nightTemperature;
+    private String description;
+    private Date date;
 }

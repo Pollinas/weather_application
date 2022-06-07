@@ -1,7 +1,7 @@
 package com.weather.view;
 
 import com.weather.controller.MainWindowController;
-import com.weather.controller.service.WeatherServiceMock;
+import com.weather.controller.service.WeatherServiceImpl;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,7 +14,7 @@ public class ViewFactory {
 
     public void showMainWindow(){
 
-        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceMock());
+        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl());
         initializeStage(controller);
     }
 

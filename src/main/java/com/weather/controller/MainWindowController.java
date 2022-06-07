@@ -1,8 +1,6 @@
 package com.weather.controller;
 
 import com.weather.controller.service.WeatherService;
-import com.weather.controller.service.WeatherServiceMock;
-import com.weather.model.Weather;
 import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
