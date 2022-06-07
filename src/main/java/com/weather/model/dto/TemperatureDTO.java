@@ -1,6 +1,6 @@
-package com.weather.model;
+package com.weather.model.dto;
 
-public class Temperature {
+public class TemperatureDTO {
     private double temp;
 
     public double getTemp() {

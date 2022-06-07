@@ -1,6 +1,6 @@
-package com.weather.model;
+package com.weather.model.dto;
 
-public class City {
+public class CityDTO {
 
     private long id;
     private String name;
