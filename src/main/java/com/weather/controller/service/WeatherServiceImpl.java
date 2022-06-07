@@ -9,6 +9,7 @@ import java.util.*;
 
 public class WeatherServiceImpl implements WeatherService {
 
+    public static final int DAY_IN_MS = 1000 * 60 * 60 * 24;
     private RequestService requestWeatherService;
 
     public WeatherServiceImpl(RequestService requestWeatherService) {
@@ -37,17 +38,16 @@ public class WeatherServiceImpl implements WeatherService {
 
         Date currentDate = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MMM/yyyy");
-        //String currentDateOnly = dateFormat.format(currentDate);
-        Date dayOne = new Date(currentDate.getTime() + (1000 * 60 * 60 * 24));
+        Date dayOne = new Date(currentDate.getTime() + DAY_IN_MS);
         String dayOneDateOnly = dateFormat.format(dayOne);
 
-        Date dayTwo = new Date(dayOne.getTime() + (1000 * 60 * 60 * 24));
+        Date dayTwo = new Date(dayOne.getTime() + DAY_IN_MS);
         String dayTwoDateOnly = dateFormat.format(dayTwo);
-        Date dayThree = new Date(dayTwo.getTime() + (1000 * 60 * 60 * 24));
+        Date dayThree = new Date(dayTwo.getTime() + DAY_IN_MS);
         String dayThreeDateOnly = dateFormat.format(dayThree);
-        Date dayFour = new Date(dayThree.getTime() + (1000 * 60 * 60 * 24));
+        Date dayFour = new Date(dayThree.getTime() + DAY_IN_MS);
         String dayFourDateOnly = dateFormat.format(dayFour);
-        Date dayFive = new Date(dayFour.getTime() + (1000 * 60 * 60 * 24));
+        Date dayFive = new Date(dayFour.getTime() + DAY_IN_MS);
         String dayFiveDateOnly = dateFormat.format(dayFive);
 
         Weather weatherDayOne = new Weather();
@@ -69,9 +69,6 @@ public class WeatherServiceImpl implements WeatherService {
 
             SimpleDateFormat isoFormat = new SimpleDateFormat("HH");
             isoFormat.setTimeZone(TimeZone.getTimeZone(timezone));
-            //Calendar calendar = Calendar.getInstance();
-            //calendar.setTime(date);
-            //int hours = calendar.get(Calendar.HOUR_OF_DAY);
             int hours = Integer.parseInt(isoFormat.format(date));
 
             //check for day one
