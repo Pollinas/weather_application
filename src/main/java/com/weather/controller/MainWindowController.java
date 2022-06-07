@@ -1,6 +1,7 @@
 package com.weather.controller;
 
 import com.weather.controller.service.WeatherService;
+import com.weather.model.Weather;
 import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -38,9 +39,11 @@ public class MainWindowController {
     @FXML
     void firstCityButtonAction() {
 
-//        for(Weather weather: weatherServiceMock.getWeather("Berlin")){
-//            System.out.println(weather);
-//        }
+        for(Weather weather: weatherServiceMock.getWeather("Berlin")){
+            System.out.println(weather.getDescription());
+            System.out.println(weather.getDayTemperature());
+            System.out.println(weather.getNightTemperature());
+        }
 
     }
 

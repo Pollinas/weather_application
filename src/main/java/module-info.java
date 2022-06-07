@@ -8,6 +8,8 @@ module com.weather {
     opens com.weather;
     opens com.weather.view;
     opens com.weather.controller;
+    opens com.weather.model;
+    opens com.weather.model.dto;
 
 
     exports com.weather;

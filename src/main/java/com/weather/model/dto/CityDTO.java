@@ -5,6 +5,7 @@ public class CityDTO {
     private long id;
     private String name;
     private String country;
+    private String timezone;
 
     public long getId() {
         return id;
@@ -29,4 +30,6 @@ public class CityDTO {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public String getTimezone() { return timezone; }
 }
