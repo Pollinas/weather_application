@@ -4,7 +4,7 @@ import com.weather.model.dto.WeatherDTO;
 
 public class RequestWeatherService implements RequestService{
     @Override
-    public WeatherDTO JSONToModelConversion() {
+    public WeatherDTO sendRequestToWeatherAPI(String cityName) {
         return null;
     }
 }

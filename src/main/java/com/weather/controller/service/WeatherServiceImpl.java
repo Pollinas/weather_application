@@ -23,15 +23,11 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public List<Weather> getWeather(String cityName) {
 
-        //wysłanie zapytania do API poprzez inny service
-        WeatherDTO weatherDTO = requestWeatherService.JSONToModelConversion();
-
+        WeatherDTO weatherDTO = requestWeatherService.sendRequestToWeatherAPI(cityName);
         String timezone = weatherDTO.getCity().getTimezone();
 
-        //konwersja Weather DTO na listę 5 obiektów Weather;
         List<Weather> weathers = parseWeatherDTO(weatherDTO, timezone);
 
-        //przesłanie tych obiektów do kontrolera MainWindowController
         return weathers;
 
     }

@@ -4,5 +4,5 @@ import com.weather.model.dto.WeatherDTO;
 
 public interface RequestService {
 
-    public WeatherDTO JSONToModelConversion();
+    public WeatherDTO sendRequestToWeatherAPI(String cityName);
 }

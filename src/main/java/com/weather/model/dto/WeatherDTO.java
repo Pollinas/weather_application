@@ -5,6 +5,7 @@ import java.util.List;
 public class WeatherDTO {
 
     private CityDTO city;
+    private List<DailyWeatherDTO> list;
 
     public CityDTO getCity() {
         return city;
@@ -13,12 +14,4 @@ public class WeatherDTO {
     public List<DailyWeatherDTO> getList() {
         return list;
     }
-
-    private List<DailyWeatherDTO> list;
-
-
-//    @Override
-//    public String toString() {
-//        //return "Date: " + date + " temperature: " + temperature + " city: " + city;
-//    }
 }
