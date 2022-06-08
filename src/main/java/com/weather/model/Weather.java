@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class Weather {
     private double dayTemperature;
+    private double nightTemperature;
+    private String description;
+    private Date date;
 
     public double getDayTemperature() {
         return dayTemperature;
@@ -36,8 +39,4 @@ public class Weather {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    private double nightTemperature;
-    private String description;
-    private Date date;
 }

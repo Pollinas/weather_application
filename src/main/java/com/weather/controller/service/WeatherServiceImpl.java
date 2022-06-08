@@ -12,7 +12,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     private static final int DAY_IN_MS = 1000 * 60 * 60 * 24;
     private static final SimpleDateFormat DATE_FORMAT_HOUR = new SimpleDateFormat("HH");
-    private static final int NUMBER_OF_DAYS = 5;
+    private static final int NUMBER_OF_DAYS = 4;
 
     private RequestService requestWeatherService;
 
@@ -38,6 +38,13 @@ public class WeatherServiceImpl implements WeatherService {
         Date currentDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy");
 
+        //getting the closest data to set values to the weather now
+        Weather weatherNow = new Weather();
+        weatherNow.setDayTemperature(weatherDTO.getList().get(0).getMain().getTemp());
+        weatherNow.setDescription(weatherDTO.getList().get(0).getWeatherDescription().get(0).getDescription());
+        weathers.add(weatherNow);
+
+        //setting values to the weather objects for next four days
         for (int j = 0; j < NUMBER_OF_DAYS; j++) {
             Weather weather = new Weather();
 
