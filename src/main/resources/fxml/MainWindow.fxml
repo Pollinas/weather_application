@@ -4,24 +4,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="641.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="641.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane fx:id="firstCityanchorPane" layoutY="110.0" prefHeight="531.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <AnchorPane fx:id="firstCityanchorPane" prefHeight="641.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="firstCityName" layoutX="63.0" layoutY="66.0" prefHeight="25.0" prefWidth="193.0" />
             <Button layoutX="287.0" layoutY="66.0" mnemonicParsing="false" onAction="#firstCityButtonAction" text="Search" />
-            <Label layoutX="112.0" layoutY="21.0" prefHeight="17.0" prefWidth="153.0" text="First city" />
+            <Label layoutX="129.0" layoutY="29.0" prefHeight="17.0" prefWidth="153.0" text="First city" />
+            <VBox fx:id="currentTimeVBox" layoutX="101.0" layoutY="136.0" prefHeight="151.0" prefWidth="208.0" />
+            <VBox fx:id="weatherCityOneDayOne" layoutX="51.0" layoutY="328.0" prefHeight="100.0" prefWidth="121.0" />
+            <VBox fx:id="weatherCityOneDayTwo" layoutX="238.0" layoutY="328.0" prefHeight="100.0" prefWidth="121.0" />
+            <VBox fx:id="weatherCityOneDayThree" layoutX="69.0" layoutY="469.0" prefHeight="100.0" prefWidth="121.0" />
+            <VBox fx:id="weatherCityOneDayFour" layoutX="235.0" layoutY="465.0" prefHeight="100.0" prefWidth="121.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="secondCityAnchorPane" layoutX="396.0" layoutY="110.0" prefHeight="561.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="110.0">
+      <AnchorPane fx:id="secondCityAnchorPane" layoutX="396.0" prefHeight="641.0" prefWidth="410.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="secondCityName" layoutX="53.0" layoutY="70.0" prefHeight="25.0" prefWidth="185.0" />
             <Button layoutX="279.0" layoutY="70.0" mnemonicParsing="false" onAction="#secondCityButtonAction" text="Search" />
-            <Label layoutX="91.0" layoutY="27.0" prefHeight="17.0" prefWidth="153.0" text="Second city" />
+            <Label layoutX="129.0" layoutY="26.0" prefHeight="17.0" prefWidth="153.0" text="Second city" />
+            <VBox layoutX="97.0" layoutY="142.0" prefHeight="151.0" prefWidth="208.0" />
+            <VBox layoutX="53.0" layoutY="355.0" prefHeight="100.0" prefWidth="121.0" />
+            <VBox layoutX="219.0" layoutY="368.0" prefHeight="100.0" prefWidth="121.0" />
+            <VBox layoutX="43.0" layoutY="482.0" prefHeight="100.0" prefWidth="121.0" />
+            <VBox layoutX="205.0" layoutY="488.0" prefHeight="100.0" prefWidth="121.0" />
          </children>
       </AnchorPane>
-      <Label layoutX="255.0" layoutY="45.0" prefHeight="17.0" prefWidth="282.0" text="Weather Application" />
    </children>
 </AnchorPane>
