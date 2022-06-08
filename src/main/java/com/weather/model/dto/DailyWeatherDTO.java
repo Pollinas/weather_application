@@ -19,5 +19,4 @@ public class DailyWeatherDTO {
         return weather;
     }
 
-
 }

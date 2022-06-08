@@ -8,7 +8,4 @@ public class GeneralDescriptionDTO {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
