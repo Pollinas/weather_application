@@ -8,12 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 public class ViewFactory {
 
 
+    double x,y =0;
     public void showMainWindow(){
 
         MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherMockService()));
@@ -33,9 +35,17 @@ public class ViewFactory {
         }
 
         Scene scene = new Scene(parent);
-        Stage stage = new Stage();
+        Stage stage = new Stage(StageStyle.UNDECORATED);
+        parent.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y= event.getSceneY();
+        });
+        parent.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+
         stage.setScene(scene);
-        stage.setTitle("Weather application");
         stage.show();
     }
 }
