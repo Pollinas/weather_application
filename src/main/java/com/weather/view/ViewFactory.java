@@ -5,6 +5,7 @@ import com.weather.controller.service.RequestWeatherMockService;
 import com.weather.controller.service.RequestWeatherService;
 import com.weather.controller.service.WeatherServiceImpl;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -47,5 +48,19 @@ public class ViewFactory {
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    public Node createWeatherItem() throws IOException {
+        Node node = FXMLLoader.load(getClass().getResource("/fxml/WeatherItem.fxml"));
+        node.setOnMouseEntered(event -> {
+            node.setStyle("-fx-background-color: #64B5F6");
+        });
+        node.setOnMouseExited(event -> {
+            node.setStyle("-fx-background-color: #E3F2FD");
+        });
+        node.setOnMousePressed(event -> {
+            node.setStyle("-fx-background-color: #1565C0");
+        });
+        return node;
     }
 }

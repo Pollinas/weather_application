@@ -4,10 +4,13 @@ import com.weather.controller.service.WeatherService;
 import com.weather.model.Weather;
 import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 
 public class MainWindowController {
@@ -21,6 +24,7 @@ public class MainWindowController {
         this.fxmlName = fxmlName;
         this.weatherService = weatherService;
     }
+
     public String getFxmlName() {
         return "/fxml/" + fxmlName;
     }
@@ -39,10 +43,15 @@ public class MainWindowController {
 
     @FXML
     void firstCityButtonAction() {
+        fistCityItemHolder.getChildren().clear();
 
-        Node[] nodes = new Node[4];
-        for (int i = 0; i < nodes.length; i++) {
-
+        for (int i = 0; i < 4; i++) {
+            try{
+                Node node = viewFactory.createWeatherItem();
+                fistCityItemHolder.getChildren().add(node);
+            } catch(IOException e){
+                e.printStackTrace();
+            }
         }
     }
 
