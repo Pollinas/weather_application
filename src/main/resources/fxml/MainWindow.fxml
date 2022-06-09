@@ -23,7 +23,7 @@
                <children>
                   <ImageView fitHeight="44.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/main.png" />
+                        <Image url="@../icons/calendar.png" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="5.0" left="20.0" top="10.0" />
