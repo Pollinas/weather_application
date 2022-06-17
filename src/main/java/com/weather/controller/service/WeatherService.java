@@ -8,5 +8,4 @@ import java.util.List;
 public interface WeatherService {
     List<Weather> getWeather(String cityName);
 
-
 }

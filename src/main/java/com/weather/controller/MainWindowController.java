@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class MainWindowController {
@@ -45,8 +46,14 @@ public class MainWindowController {
     @FXML
     void firstCityButtonAction() {
         weatherItemsContainer.getChildren().clear();
-        for (int i = 0; i < 4; i++) {
-            Node node = viewFactory.createWeatherItem();
+
+        List<Weather> weathers = weatherService.getWeather("Berlin");
+
+        for (int i = 1; i <=4 ; i++) {
+            String temps = String.valueOf(weathers.get(i).getDayTemperature());
+            String description = weathers.get(i).getDescription();
+            String date = String.valueOf(i);
+            Node node = viewFactory.createWeatherItem(temps, description, date);
             weatherItemsContainer.getChildren().add(node);
         }
 

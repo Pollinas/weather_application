@@ -10,14 +10,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 public class ViewFactory {
-
 
     double x,y =0;
     public void showMainWindow(){
@@ -53,7 +51,7 @@ public class ViewFactory {
         stage.show();
     }
 
-    public Node createWeatherItem()  {
+    public Node createWeatherItem(String temps, String description, String date)  {
 
         WeatherItemController node = new WeatherItemController();
 
@@ -67,9 +65,10 @@ public class ViewFactory {
             node.setStyle("-fx-background-color: #1565C0");
         });
 
-        node.setDate("30/11/12");
-        node.setDescription("sunny");
-        node.setTemps("39");
+        node.setDate(date);
+        node.setDescription(description);
+        node.setTemps(temps);
+
         return node;
     }
 }
