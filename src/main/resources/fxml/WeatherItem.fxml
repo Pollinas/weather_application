@@ -2,13 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-<fx:root alignment="CENTER" prefHeight="32.0" prefWidth="258.0" type="javafx.scene.layout.HBox" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
-            <Label fx:id="dateLabel" text="Date" />
-            <ImageView fx:id="weatherIcon" fitHeight="55.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="tempsLabel" text="Temps" />
+<fx:root alignment="CENTER" prefHeight="32.0" prefWidth="258.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+            <Label fx:id="dateLabel" text="Date">
+      <padding>
+         <Insets right="10.0" />
+      </padding></Label>
+            <ImageView fx:id="weatherIcon" fitHeight="34.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../icons/location.png" />
+      </image></ImageView>
+            <Label fx:id="tempsLabel" text="Temps">
+      <HBox.margin>
+         <Insets left="20.0" />
+      </HBox.margin></Label>
             <Label fx:id="descriptionLabel" text="Description">
       <HBox.margin>
          <Insets left="20.0" />

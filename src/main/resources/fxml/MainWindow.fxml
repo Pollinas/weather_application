@@ -54,7 +54,7 @@
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <AnchorPane prefHeight="182.0" prefWidth="323.0" />
+                  <AnchorPane fx:id="currentWeatherItemContainer" prefHeight="182.0" prefWidth="323.0" />
                   <VBox fx:id="weatherItemsContainer" prefHeight="200.0" prefWidth="100.0" />
                </children></VBox>
          </left>
