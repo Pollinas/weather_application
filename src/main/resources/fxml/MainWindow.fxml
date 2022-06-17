@@ -10,9 +10,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
@@ -23,33 +20,17 @@
                <children>
                   <ImageView fitHeight="44.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icons/calendar.png" />
+                        <Image url="@../icons/location.png" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="5.0" left="20.0" top="10.0" />
                      </HBox.margin></ImageView>
-                  <Label alignment="CENTER" prefHeight="61.0" prefWidth="195.0" text="Weather Application">
+                  <Label alignment="CENTER" prefHeight="61.0" prefWidth="195.0" text="Weather Application" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Comic Sans MS" size="18.0" />
                      </font>
-                     <textFill>
-                        <LinearGradient endX="0.11848341232227488" endY="0.6066350710900474" startX="0.11374407582938388">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
                      <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                        <Insets bottom="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
                </children>
@@ -73,8 +54,8 @@
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                  <VBox fx:id="fistCityItemHolder" prefHeight="200.0" prefWidth="100.0" />
+                  <AnchorPane prefHeight="182.0" prefWidth="323.0" />
+                  <VBox fx:id="weatherItemsContainer" prefHeight="200.0" prefWidth="100.0" />
                </children></VBox>
          </left>
          <right>

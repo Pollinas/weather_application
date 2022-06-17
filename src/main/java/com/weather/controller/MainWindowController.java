@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -36,23 +37,19 @@ public class MainWindowController {
     private TextField secondCityName;
 
     @FXML
-    private VBox fistCityItemHolder;
+    private VBox weatherItemsContainer;
 
     @FXML
     private VBox secondCityItemHolder;
 
     @FXML
     void firstCityButtonAction() {
-        fistCityItemHolder.getChildren().clear();
-
+        weatherItemsContainer.getChildren().clear();
         for (int i = 0; i < 4; i++) {
-            try{
-                Node node = viewFactory.createWeatherItem();
-                fistCityItemHolder.getChildren().add(node);
-            } catch(IOException e){
-                e.printStackTrace();
-            }
+            Node node = viewFactory.createWeatherItem();
+            weatherItemsContainer.getChildren().add(node);
         }
+
     }
 
     @FXML
