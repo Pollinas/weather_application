@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -44,15 +45,27 @@ public class MainWindowController {
     private VBox secondCityItemHolder;
 
     @FXML
+    private AnchorPane currentWeatherItemContainer;
+
+
+    @FXML
     void firstCityButtonAction() {
         weatherItemsContainer.getChildren().clear();
 
-        List<Weather> weathers = weatherService.getWeather("Berlin");
+        List<Weather> weathers = weatherService.getWeather(firstCityName.getText());
 
-        for (int i = 1; i <=4 ; i++) {
-            String temps = String.valueOf(weathers.get(i).getDayTemperature());
-            String description = weathers.get(i).getDescription();
-            String date = String.valueOf(i);
+        //current weather:
+        String temps = String.valueOf(weathers.get(0).getDayTemperature());
+        String description = weathers.get(0).getDescription();
+        String date = String.valueOf(0);
+        Node currentWeatherNode = viewFactory.createCurrentWeatherItem(temps, description);
+        currentWeatherItemContainer.getChildren().add(currentWeatherNode);
+
+        //weather for the next four days:
+        for (int i = 1; i <= 4 ; i++) {
+            temps = String.valueOf(weathers.get(i).getDayTemperature());
+            description = weathers.get(i).getDescription();
+            date = String.valueOf(i);
             Node node = viewFactory.createWeatherItem(temps, description, date);
             weatherItemsContainer.getChildren().add(node);
         }

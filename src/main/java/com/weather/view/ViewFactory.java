@@ -1,5 +1,6 @@
 package com.weather.view;
 
+import com.weather.controller.CurrentWeatherItemController;
 import com.weather.controller.MainWindowController;
 import com.weather.controller.WeatherItemController;
 import com.weather.controller.service.RequestWeatherMockService;
@@ -68,6 +69,16 @@ public class ViewFactory {
         node.setDate(date);
         node.setDescription(description);
         node.setTemps(temps);
+
+        return node;
+    }
+
+    public Node createCurrentWeatherItem(String temps, String description)  {
+
+        CurrentWeatherItemController node = new CurrentWeatherItemController();
+
+        node.setDescription(description);
+        node.setTemperature(temps);
 
         return node;
     }
