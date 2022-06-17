@@ -1,13 +1,16 @@
 package com.weather.view;
 
 import com.weather.controller.MainWindowController;
+import com.weather.controller.WeatherItemController;
 import com.weather.controller.service.RequestWeatherMockService;
 import com.weather.controller.service.RequestWeatherService;
 import com.weather.controller.service.WeatherServiceImpl;
+import com.weather.model.Weather;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -50,8 +53,10 @@ public class ViewFactory {
         stage.show();
     }
 
-    public Node createWeatherItem() throws IOException {
-        Node node = FXMLLoader.load(getClass().getResource("/fxml/WeatherItem.fxml"));
+    public Node createWeatherItem()  {
+
+        WeatherItemController node = new WeatherItemController();
+
         node.setOnMouseEntered(event -> {
             node.setStyle("-fx-background-color: #64B5F6");
         });
@@ -61,6 +66,10 @@ public class ViewFactory {
         node.setOnMousePressed(event -> {
             node.setStyle("-fx-background-color: #1565C0");
         });
+
+        node.setDate("30/11/12");
+        node.setDescription("sunny");
+        node.setTemps("39");
         return node;
     }
 }
