@@ -51,11 +51,12 @@ public class MainWindowController {
     @FXML
     void firstCityButtonAction() {
         weatherItemsContainer.getChildren().clear();
+        currentWeatherItemContainer.getChildren().clear();
 
         List<Weather> weathers = weatherService.getWeather(firstCityName.getText());
 
         //current weather:
-        String temps = String.valueOf(weathers.get(0).getDayTemperature());
+        String temps = String.valueOf(weathers.get(0).getDayTemperature()) + "°C";
         String description = weathers.get(0).getDescription();
         String date = String.valueOf(0);
         Node currentWeatherNode = viewFactory.createCurrentWeatherItem(temps, description);
@@ -63,7 +64,7 @@ public class MainWindowController {
 
         //weather for the next four days:
         for (int i = 1; i <= 4 ; i++) {
-            temps = String.valueOf(weathers.get(i).getDayTemperature());
+            temps = String.valueOf(weathers.get(i).getDayTemperature()) + "°C / " +  String.valueOf(weathers.get(i).getNightTemperature()) + "°C";
             description = weathers.get(i).getDescription();
             date = String.valueOf(i);
             Node node = viewFactory.createWeatherItem(temps, description, date);
