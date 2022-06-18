@@ -21,7 +21,7 @@ public class ViewFactory {
     double x,y =0;
     public void showMainWindow(){
 
-        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherMockService()));
+        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherService()));
         initializeStage(controller);
     }
 

@@ -3,6 +3,7 @@ package com.weather.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
@@ -41,6 +42,18 @@ public class WeatherItemController extends HBox {
 
     public void setDescription(String description) {
         this.descriptionLabel.setText(description);
+
+        if (descriptionLabel.getText().equals("clear sky")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/location.png"));
+            setWeatherIcon(image);
+        } else {
+            Image image = new Image(getClass().getResourceAsStream("/icons/main.png"));
+            setWeatherIcon(image);
+        }
+    }
+
+    private void setWeatherIcon(Image image){
+        weatherIcon.setImage(image);
     }
 
     public void setTemps(String temp) {

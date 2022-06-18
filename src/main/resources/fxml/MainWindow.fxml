@@ -39,14 +39,9 @@
          <left>
             <VBox prefHeight="200.0" prefWidth="325.0" style="-fx-border-color: #1565C0; -fx-background-color: #E3F2FD;" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="First city">
+                  <TextField fx:id="firstCityName" prefHeight="25.0" prefWidth="304.0" promptText="Where are you?">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="50.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="firstCityName" prefHeight="25.0" prefWidth="304.0">
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
+                        <Insets left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
                   <Button mnemonicParsing="false" onAction="#firstCityButtonAction" text="Show me the weather">
@@ -61,14 +56,9 @@
          <right>
             <VBox prefHeight="426.0" prefWidth="325.0" style="-fx-border-color: #1565C0; -fx-background-color: #E3F2FD;" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Second city">
+                  <TextField fx:id="secondCityName" prefHeight="25.0" prefWidth="304.0" promptText="Where do you want to go?">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="50.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="secondCityName" prefHeight="25.0" prefWidth="304.0">
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
+                        <Insets left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
                   <Button mnemonicParsing="false" onAction="#secondCityButtonAction" text="Show me the weather">
