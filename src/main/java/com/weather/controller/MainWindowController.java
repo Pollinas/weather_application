@@ -39,10 +39,7 @@ public class MainWindowController {
     private TextField secondCityName;
 
     @FXML
-    private VBox weatherItemsContainer;
-
-    @FXML
-    private VBox secondCityItemHolder;
+    private HBox weatherItemsContainer;
 
     @FXML
     private AnchorPane currentWeatherItemContainer;
