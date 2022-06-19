@@ -5,16 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.io.File;
 import java.io.IOException;
 
 public class CurrentWeatherItemController extends VBox {
 
-
-    @FXML
-    private ImageView currentWeatherIcon;
 
     @FXML
     private Label descriptionLabel;
@@ -40,17 +37,29 @@ public class CurrentWeatherItemController extends VBox {
         this.descriptionLabel.setText(description);
 
         if (descriptionLabel.getText().equals("clear sky")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/location.png"));
-            setCurrentWeatherIcon(image);
+            Image image = new Image(getClass().getResourceAsStream("/background/rainy.jpg"), 400,312,false,true);
+            setBackgroundImage(image);
+
         } else {
-            Image image = new Image(getClass().getResourceAsStream("/icons/main.png"));
-            setCurrentWeatherIcon(image);
+
+
         }
     }
 
-    private void setCurrentWeatherIcon(Image image) {
-        currentWeatherIcon.setImage(image);
+    private void setBackgroundImage(Image image){
+        BackgroundImage backgroundimage = new BackgroundImage(image,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+
+        // create Background
+        Background background = new Background(backgroundimage);
+
+        // set background
+        this.setBackground(background);
     }
+
 
     public void setTemperature(String temperature) {
         this.temperatureLabel.setText(temperature);
