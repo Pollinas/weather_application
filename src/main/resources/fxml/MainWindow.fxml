@@ -2,73 +2,75 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="586.0" prefWidth="800.0" style="-fx-background-color: #CCDEFA;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="869.0" styleClass="main" stylesheets="@../css/universal.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="65.0" prefWidth="800.0">
+      <HBox layoutX="21.0" layoutY="14.0" prefHeight="45.0" prefWidth="797.0" styleClass="nav" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <HBox layoutX="40.0" layoutY="58.0" prefHeight="85.0" prefWidth="396.0" styleClass="container" AnchorPane.leftAnchor="40.0">
          <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: #CCDEFA; -fx-border-color: grey; -fx-border-radius: 20;" text="?">
+            <TextField fx:id="firstCityName" alignment="CENTER" prefHeight="41.0" prefWidth="233.0" style="-fx-border-color: black;" styleClass="btn">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="30.0" right="10.0" top="20.0" />
+               </HBox.margin></TextField>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#firstCityButtonAction" prefHeight="36.0" prefWidth="81.0" styleClass="btn" text="Search">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Button">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="200.0" text="Weather App" textAlignment="JUSTIFY" textFill="#6d6b80">
-               <font>
-                  <Font name="Segoe Script Bold" size="23.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
                </HBox.margin>
-            </Label>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Button">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="90.0" right="20.0" top="20.0" />
-               </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Button">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></Button>
-            <Button alignment="BOTTOM_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" text="Button">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></Button>
+               <font>
+                  <Font name="Consolas Bold" size="14.0" />
+               </font></Button>
          </children>
       </HBox>
-      <HBox layoutY="55.0" prefHeight="55.0" prefWidth="400.0">
+      <HBox layoutX="450.0" layoutY="58.0" prefHeight="85.0" prefWidth="402.0" styleClass="container" AnchorPane.rightAnchor="17.0">
          <children>
-            <TextField fx:id="firstCityName" alignment="CENTER" prefHeight="25.0" prefWidth="210.0">
+            <TextField fx:id="secondCityName" prefHeight="44.0" prefWidth="210.0" style="-fx-border-color: black;" styleClass="btn">
                <HBox.margin>
-                  <Insets bottom="20.0" left="30.0" right="20.0" top="20.0" />
-               </HBox.margin></TextField>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#firstCityButtonAction" text="Search">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></Button>
-         </children>
-      </HBox>
-      <HBox layoutX="400.0" layoutY="55.0" prefHeight="55.0" prefWidth="400.0">
-         <children>
-            <TextField fx:id="secondCityName" prefHeight="25.0" prefWidth="210.0">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="30.0" right="20.0" top="20.0" />
-               </HBox.margin></TextField>
-            <Button mnemonicParsing="false" onAction="#secondCityButtonAction" text="Search">
+                  <Insets bottom="20.0" left="30.0" right="10.0" top="20.0" />
+               </HBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#secondCityButtonAction" prefHeight="35.0" prefWidth="92.0" styleClass="btn" text="Search">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></Button>
+               </HBox.margin>
+               <font>
+                  <Font name="Consolas Bold" size="13.0" />
+               </font>
+            </Button>
          </children>
       </HBox>
-      <HBox fx:id="weatherItemsContainer" layoutY="421.0" prefHeight="165.0" prefWidth="400.0" />
-      <HBox layoutX="400.0" layoutY="421.0" prefHeight="165.0" prefWidth="400.0" />
-      <AnchorPane fx:id="currentWeatherItemContainer" layoutY="110.0" prefHeight="312.0" prefWidth="400.0" />
-      <AnchorPane layoutX="400.0" layoutY="110.0" prefHeight="312.0" prefWidth="400.0" />
+      <TabPane layoutX="43.0" layoutY="165.0" prefHeight="376.0" prefWidth="396.0" styleClass="main" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab style="-fx-font-size: 17 px; -fx-font-weight: bold; -fx-border-bottom: 0px;" styleClass="second" text="Forecast">
+               <content>
+                  <HBox fx:id="weatherItemsContainer" prefHeight="325.0" prefWidth="390.0" style="-fx-border-width: 0px;" styleClass="second" />
+               </content>
+          </Tab>
+          <Tab style="-fx-font-size: 17px; -fx-font-weight: bold;" styleClass="first" text="Current weather">
+               <content>
+                  <AnchorPane fx:id="currentWeatherItemContainer" prefHeight="339.0" prefWidth="341.0" style="-fx-border-width: 0px;" styleClass="first" />
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <TabPane layoutX="450.0" layoutY="165.0" prefHeight="376.0" prefWidth="396.0" styleClass="main" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab style="-fx-font-size: 17 px; -fx-font-weight: bold;" styleClass="container" text="Forecast">
+               <content>
+                  <HBox prefHeight="163.0" prefWidth="378.0" styleClass="container" />
+               </content>
+            </Tab>
+            <Tab style="-fx-font-size: 17px; -fx-font-weight: bold;" styleClass="container" text="Current weather">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="container" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

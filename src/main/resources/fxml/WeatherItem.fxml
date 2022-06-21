@@ -2,23 +2,27 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <fx:root alignment="CENTER" prefHeight="147.0" prefWidth="99.0" spacing="10.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
             <Label fx:id="dateLabel" text="Date">
       <padding>
          <Insets right="10.0" />
-      </padding></Label>
-            <ImageView fx:id="weatherIcon" fitHeight="34.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../icons/location.png" />
-      </image></ImageView>
+      </padding>
+      <font>
+         <Font name="Consolas" size="12.0" />
+      </font></Label>
+            <ImageView fx:id="weatherIcon" fitHeight="34.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="tempsLabel" text="Temps">
-     </Label>
+      <font>
+         <Font name="Consolas" size="12.0" />
+      </font></Label>
             <Label fx:id="descriptionLabel" text="Description">
-   </Label>
+      <font>
+         <Font name="Consolas" size="12.0" />
+      </font></Label>
    <opaqueInsets>
       <Insets />
    </opaqueInsets>

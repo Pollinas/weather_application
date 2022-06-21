@@ -6,7 +6,6 @@ import com.weather.controller.WeatherItemController;
 import com.weather.controller.service.RequestWeatherMockService;
 import com.weather.controller.service.RequestWeatherService;
 import com.weather.controller.service.WeatherServiceImpl;
-import com.weather.model.Weather;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -21,7 +20,7 @@ public class ViewFactory {
     double x,y =0;
     public void showMainWindow(){
 
-        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherMockService()));
+        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherService()));
         initializeStage(controller);
     }
 
@@ -56,15 +55,15 @@ public class ViewFactory {
 
         WeatherItemController node = new WeatherItemController();
 
-        node.setOnMouseEntered(event -> {
-            node.setStyle("-fx-background-color: #64B5F6");
-        });
-        node.setOnMouseExited(event -> {
-            node.setStyle("-fx-background-color: #E3F2FD");
-        });
-        node.setOnMousePressed(event -> {
-            node.setStyle("-fx-background-color: #1565C0");
-        });
+//        node.setOnMouseEntered(event -> {
+//            node.setStyle("-fx-background-color: #64B5F6");
+//        });
+//        node.setOnMouseExited(event -> {
+//            node.setStyle("-fx-background-color: #E3F2FD");
+//        });
+//        node.setOnMousePressed(event -> {
+//            node.setStyle("-fx-background-color: #1565C0");
+//        });
 
         node.setDate(date);
         node.setDescription(description);
