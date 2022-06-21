@@ -44,15 +44,36 @@ public class WeatherItemController extends VBox {
         this.descriptionLabel.setText(description);
 
         if (descriptionLabel.getText().equals("clear sky")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/location.png"));
+            Image image = new Image(getClass().getResourceAsStream("/icons/sun.png"));
             setWeatherIcon(image);
-        } else {
-            Image image = new Image(getClass().getResourceAsStream("/icons/main.png"));
+        } else if (descriptionLabel.getText().equals("few clouds")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/cloud-sun.png"));
+            setWeatherIcon(image);
+        } else if (descriptionLabel.getText().equals("scattered clouds")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/cloud.png"));
+            setWeatherIcon(image);
+      }  else if (descriptionLabel.getText().equals("broken clouds")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/broken-clouds.png"));
+            setWeatherIcon(image);
+       }  else if (descriptionLabel.getText().equals("shower rain")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/shower-rain.png"));
+            setWeatherIcon(image);
+        } else if (descriptionLabel.getText().equals("rain")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/rain.png"));
+            setWeatherIcon(image);
+        } else if (descriptionLabel.getText().equals("thunderstorm")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/thunderstorm.png"));
+            setWeatherIcon(image);
+       } else if (descriptionLabel.getText().equals("snow")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/snow.png"));
+            setWeatherIcon(image);
+        } else if (descriptionLabel.getText().equals("mist")) {
+            Image image = new Image(getClass().getResourceAsStream("/icons/mist.png"));
             setWeatherIcon(image);
         }
     }
 
-    private void setWeatherIcon(Image image){
+    private void setWeatherIcon(Image image) {
         weatherIcon.setImage(image);
     }
 
