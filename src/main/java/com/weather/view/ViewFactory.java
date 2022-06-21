@@ -1,9 +1,6 @@
 package com.weather.view;
 
-import com.weather.controller.CurrentWeatherItemController;
-import com.weather.controller.MainWindowController;
-import com.weather.controller.WeatherItemController;
-import com.weather.controller.service.RequestWeatherMockService;
+import com.weather.controller.*;
 import com.weather.controller.service.RequestWeatherService;
 import com.weather.controller.service.WeatherServiceImpl;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +21,7 @@ public class ViewFactory {
         initializeStage(controller);
     }
 
-    private void initializeStage(MainWindowController controller) {
+    private void initializeStage(BaseController controller) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(controller.getFxmlName()));
         fxmlLoader.setController(controller);
         Parent parent;
@@ -55,16 +52,6 @@ public class ViewFactory {
 
         WeatherItemController node = new WeatherItemController();
 
-//        node.setOnMouseEntered(event -> {
-//            node.setStyle("-fx-background-color: #64B5F6");
-//        });
-//        node.setOnMouseExited(event -> {
-//            node.setStyle("-fx-background-color: #E3F2FD");
-//        });
-//        node.setOnMousePressed(event -> {
-//            node.setStyle("-fx-background-color: #1565C0");
-//        });
-
         node.setDate(date);
         node.setDescription(description);
         node.setTemps(temps);
@@ -80,5 +67,10 @@ public class ViewFactory {
         node.setTemperature(temps);
 
         return node;
+    }
+
+    public void showErrorWindow() {
+        ErrorWindowController controller = new ErrorWindowController("ErrorWindow.fxml",this);
+        initializeStage(controller);
     }
 }
