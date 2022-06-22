@@ -5,13 +5,17 @@ import com.weather.model.Weather;
 import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 
 
-
+import java.nio.channels.UnresolvedAddressException;
 import java.util.List;
+
 
 
 public class MainWindowController extends BaseController{
@@ -36,12 +40,28 @@ public class MainWindowController extends BaseController{
     @FXML
     private AnchorPane currentWeatherItemContainer;
 
+    @FXML
+    void addAutocompletion() {
+       // TextFields.bindAutoCompletion(firstCityName, "Warszawa");
+    }
+
+    @FXML
+    void closeMainWindow() {
+        Stage stage = (Stage) weatherItemsContainer.getScene().getWindow();
+        viewFactory.closeStage(stage);
+    }
+
+    @FXML
+    void minimizeMainWindow() {
+        Stage stage = (Stage) weatherItemsContainer.getScene().getWindow();
+        viewFactory.minimizeStage(stage);
+    }
+
 
     @FXML
     void firstCityButtonAction() {
         weatherItemsContainer.getChildren().clear();
         currentWeatherItemContainer.getChildren().clear();
-
 
         try {
             List<Weather> weathers = weatherService.getWeather(firstCityName.getText());
@@ -61,6 +81,7 @@ public class MainWindowController extends BaseController{
                 weatherItemsContainer.getChildren().add(node);
             }
         } catch(Exception e){
+            e.printStackTrace();
             viewFactory.showErrorWindow();
         }
 

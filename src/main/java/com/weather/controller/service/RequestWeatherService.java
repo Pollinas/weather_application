@@ -2,7 +2,10 @@ package com.weather.controller.service;
 
 import com.google.gson.Gson;
 import com.weather.Config;
+import com.weather.model.Weather;
 import com.weather.model.dto.WeatherDTO;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 
 import java.io.IOException;
 import java.net.URI;
@@ -28,10 +31,13 @@ public class RequestWeatherService implements RequestService {
             WeatherDTO weatherDTO = new Gson().fromJson(response.body(), WeatherDTO.class);
             return weatherDTO;
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
+
     }
 }

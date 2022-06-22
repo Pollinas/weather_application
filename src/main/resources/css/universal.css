@@ -22,6 +22,8 @@
    -fx-border-width: 2px;
    -fx-border-style: solid;
    -fx-background-color: #FEF5D2;
+   -fx-border-radius: 5px;
+           -fx-background-radius: 5px;
 }
 
 .second{
@@ -29,6 +31,8 @@
     -fx-border-style: solid;
     -fx-border-color: black;
     -fx-background-color: #F099A1;
+    -fx-border-radius: 5px;
+            -fx-background-radius: 5px;
 }
 
 .first{
@@ -36,6 +40,8 @@
     -fx-border-style: solid;
     -fx-border-color: black;
     -fx-background-color: #FEF5D2;
+    -fx-border-radius: 5px;
+            -fx-background-radius: 5px;
 }
 
 
