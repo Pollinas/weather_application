@@ -32,7 +32,7 @@
                   <Insets left="5.0" right="150.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <Button layoutX="717.0" layoutY="10.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="63.0" styleClass="btn" text="o">
+            <Button layoutX="717.0" layoutY="10.0" mnemonicParsing="false" onAction="#maximizeWindow" prefHeight="54.0" prefWidth="63.0" styleClass="btn" text="o">
                <font>
                   <Font name="Lucida Sans Unicode" size="22.0" />
                </font>

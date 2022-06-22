@@ -57,6 +57,12 @@ public class MainWindowController extends BaseController{
         viewFactory.minimizeStage(stage);
     }
 
+    @FXML
+    void maximizeWindow() {
+        Stage stage = (Stage) weatherItemsContainer.getScene().getWindow();
+        viewFactory.maximizeStage(stage);
+    }
+
 
     @FXML
     void firstCityButtonAction() {

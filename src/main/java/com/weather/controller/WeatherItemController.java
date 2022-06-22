@@ -52,13 +52,13 @@ public class WeatherItemController extends VBox {
         } else if (descriptionLabel.getText().equals("scattered clouds")) {
             Image image = new Image(getClass().getResourceAsStream("/icons/cloud.png"));
             setWeatherIcon(image);
-      }  else if (descriptionLabel.getText().equals("broken clouds")) {
+      }  else if (descriptionLabel.getText().equals("broken clouds") || descriptionLabel.getText().equals("overcast clouds")) {
             Image image = new Image(getClass().getResourceAsStream("/icons/broken-clouds.png"));
             setWeatherIcon(image);
        }  else if (descriptionLabel.getText().equals("shower rain")) {
             Image image = new Image(getClass().getResourceAsStream("/icons/shower-rain.png"));
             setWeatherIcon(image);
-        } else if (descriptionLabel.getText().equals("rain")) {
+        } else if (descriptionLabel.getText().equals("rain") || descriptionLabel.getText().equals("light rain")) {
             Image image = new Image(getClass().getResourceAsStream("/icons/rain.png"));
             setWeatherIcon(image);
         } else if (descriptionLabel.getText().equals("thunderstorm")) {
