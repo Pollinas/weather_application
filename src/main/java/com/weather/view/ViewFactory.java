@@ -63,10 +63,8 @@ public class ViewFactory {
     public Node createCurrentWeatherItem(String temps, String description)  {
 
         CurrentWeatherItemController node = new CurrentWeatherItemController();
-
         node.setDescription(description);
         node.setTemperature(temps);
-
         return node;
     }
 
@@ -81,5 +79,9 @@ public class ViewFactory {
 
     public void minimizeStage(Stage stageToMinimize) {
         stageToMinimize.setIconified(true);
+    }
+
+    public void maximizeStage(Stage stageToMaximize) {
+        stageToMaximize.setMaximized(true);
     }
 }
