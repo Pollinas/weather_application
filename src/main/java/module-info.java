@@ -5,6 +5,7 @@ module com.weather {
     requires javafx.web;
     requires com.google.gson;
     requires java.net.http;
+    requires org.controlsfx.controls;
 
     opens com.weather;
     opens com.weather.view;

@@ -1,6 +1,7 @@
 package com.weather.view;
 
 import com.weather.controller.*;
+import com.weather.controller.service.RequestWeatherMockService;
 import com.weather.controller.service.RequestWeatherService;
 import com.weather.controller.service.WeatherServiceImpl;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,7 @@ public class ViewFactory {
     double x,y =0;
     public void showMainWindow(){
 
-        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherService()));
+        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherMockService()));
         initializeStage(controller);
     }
 
@@ -72,5 +73,13 @@ public class ViewFactory {
     public void showErrorWindow() {
         ErrorWindowController controller = new ErrorWindowController("ErrorWindow.fxml",this);
         initializeStage(controller);
+    }
+
+    public void closeStage(Stage stageToClose) {
+        stageToClose.close();
+    }
+
+    public void minimizeStage(Stage stageToMinimize) {
+        stageToMinimize.setIconified(true);
     }
 }
