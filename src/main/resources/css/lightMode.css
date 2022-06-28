@@ -8,19 +8,19 @@
 }
 
 .main{
-    -fx-background-color: #1B3232;
     -fx-border-radius: 40px;
     -fx-background-radius: 40px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    //-fx-background-color: #1B3232;
 }
 
 .nav{
-    -fx-border-color: #ECC191;
+    //-fx-border-color: #ECC191;
     -fx-border-width: 0 0 0.5 0;
-
 }
+
 .btn{
-    -fx-background-color: #DCDFDD;
+    //-fx-background-color: #DCDFDD;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
     -fx-cursor: hand;
 }
@@ -29,22 +29,6 @@
     -fx-scale-x: 0.9;
     -fx-scale-y: 0.9;
     -fx-scale-z: 0.9;
-}
-
-.container, .forecast{
-    -fx-background-color: #DCDFDD;
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-}
-
-.current{
-    -fx-background-color: rgba(104, 141, 141, 0.5);
-    -fx-border-radius: 20px;
-    -fx-background-radius: 20px;
-}
-
-.first{
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
 
 .currentData{
@@ -57,6 +41,25 @@
 .description{
     -fx-font-size: 21px;
 }
+
+///*////
+.container, .forecast{
+    -fx-background-color: #DCDFDD;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.second{
+    -fx-background-color: rgba(104, 141, 141, 0.5);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.first{
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+
 
 
 

@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 
 public class CurrentWeatherItemController extends CustomBaseController {
 
-
     @FXML
     private Label temperatureLabel;
 
