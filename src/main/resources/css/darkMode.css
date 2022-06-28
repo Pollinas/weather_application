@@ -1,0 +1,56 @@
+@font-face {
+    font-family: Amatic;
+    src: url('Amatic-Bold.ttf');
+}
+
+*{
+    -fx-font-family: Amatic;
+}
+
+.main{
+    -fx-background-color: #1B3232;
+    -fx-border-radius: 40px;
+    -fx-background-radius: 40px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.nav{
+    -fx-border-color: #ECC191;
+    -fx-border-width: 0 0 0.5 0;
+
+}
+.btn{
+        -fx-background-color: #E4EBF1;
+        -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+        -fx-cursor: hand;
+}
+
+.btn:hover, .icon:hover{
+      -fx-scale-x: 0.9;
+      -fx-scale-y: 0.9;
+      -fx-scale-z: 0.9;
+}
+
+.container, .forecast{
+    -fx-background-color: #DCDFDD;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.second{
+    -fx-background-color: rgba(104, 141, 141, 0.5);
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.first{
+
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.currentData{
+    -fx-font-size: 24px;
+}
+
+
+

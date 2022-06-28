@@ -35,7 +35,10 @@ public class MainWindowController extends BaseController{
     private TextField secondCityName;
 
     @FXML
-    private HBox weatherItemsContainer;
+    private HBox weatherItemsContainer1;
+
+    @FXML
+    private HBox weatherItemsContainer2;
 
     @FXML
     private AnchorPane currentWeatherItemContainer;
@@ -47,26 +50,21 @@ public class MainWindowController extends BaseController{
 
     @FXML
     void closeMainWindow() {
-        Stage stage = (Stage) weatherItemsContainer.getScene().getWindow();
+        Stage stage = (Stage) weatherItemsContainer1.getScene().getWindow();
         viewFactory.closeStage(stage);
     }
 
     @FXML
     void minimizeMainWindow() {
-        Stage stage = (Stage) weatherItemsContainer.getScene().getWindow();
+        Stage stage = (Stage) weatherItemsContainer1.getScene().getWindow();
         viewFactory.minimizeStage(stage);
-    }
-
-    @FXML
-    void maximizeWindow() {
-        Stage stage = (Stage) weatherItemsContainer.getScene().getWindow();
-        viewFactory.maximizeStage(stage);
     }
 
 
     @FXML
     void firstCityButtonAction() {
-        weatherItemsContainer.getChildren().clear();
+        weatherItemsContainer1.getChildren().clear();
+        weatherItemsContainer2.getChildren().clear();
         currentWeatherItemContainer.getChildren().clear();
 
         try {
@@ -84,7 +82,12 @@ public class MainWindowController extends BaseController{
                 description = weathers.get(i).getDescription();
                 date = String.valueOf(i);
                 Node node = viewFactory.createWeatherItem(temps, description, date);
-                weatherItemsContainer.getChildren().add(node);
+
+                if (i<3) {
+                    weatherItemsContainer1.getChildren().add(node);
+                } else {
+                    weatherItemsContainer2.getChildren().add(node);
+                }
             }
         } catch(Exception e){
             e.printStackTrace();
