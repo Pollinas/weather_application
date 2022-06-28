@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="622.0" prefWidth="870.0" styleClass="main" stylesheets="@../css/lightMode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="622.0" prefWidth="870.0" styleClass="main" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox layoutX="12.0" prefHeight="82.0" prefWidth="847.0" styleClass="nav" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
+            <ImageView fitHeight="60.0" fitWidth="60.0" onMousePressed="#changeMode" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
                <image>
                   <Image url="@../img/day-and-night.png" />
                </image>
