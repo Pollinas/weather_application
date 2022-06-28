@@ -5,15 +5,11 @@ import com.weather.model.Weather;
 import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import org.controlsfx.control.textfield.TextFields;
 
-
-import java.nio.channels.UnresolvedAddressException;
 import java.util.List;
 
 
@@ -25,7 +21,6 @@ public class MainWindowController extends BaseController {
         super(fxmlName, viewFactory);
         this.weatherService = weatherService;
     }
-
 
     @FXML
     private TextField firstCityName;
@@ -50,8 +45,6 @@ public class MainWindowController extends BaseController {
 
     @FXML
     private AnchorPane secondCityCurrentWeatherItemContainer;
-
-
 
     @FXML
     void addAutocompletion() {
