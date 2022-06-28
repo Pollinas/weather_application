@@ -83,21 +83,21 @@
                   </Button>
                </children>
             </HBox>
-            <TabPane layoutX="40.0" layoutY="167.0" prefHeight="339.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="40.0">
+            <TabPane layoutX="40.0" layoutY="167.0" prefHeight="345.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="40.0">
               <tabs>
-                <Tab style="-fx-font-size: 22;" styleClass="forecast" text="4-day Forecast">
+                <Tab style="-fx-font-size: 22; -fx-cursor: hand;" styleClass="forecast" text="4-day Forecast">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <HBox fx:id="weatherItemsContainer1" prefHeight="158.0" prefWidth="376.0" />
-                              <HBox fx:id="weatherItemsContainer2" layoutY="142.0" prefHeight="158.5" prefWidth="376.0" />
+                              <HBox fx:id="firstCityWeatherItemsContainer1" prefHeight="158.0" prefWidth="376.0" />
+                              <HBox fx:id="firstCityWeatherItemsContainer2" layoutY="155.0" prefHeight="158.5" prefWidth="376.0" />
                            </children>
                         </AnchorPane>
                      </content>
                 </Tab>
-                <Tab style="-fx-font-size: 22px;" styleClass="second" text="Current weather">
+                <Tab style="-fx-font-size: 22px; -fx-cursor: hand;" styleClass="current" text="Current weather">
                      <content>
-                        <AnchorPane fx:id="currentWeatherItemContainer" prefHeight="326.0" prefWidth="384.0" styleClass="second" />
+                        <AnchorPane fx:id="firstCityCurrentWeatherItemContainer" prefHeight="326.0" prefWidth="384.0" styleClass="current" />
                      </content>
                 </Tab>
               </tabs>
@@ -118,23 +118,28 @@
                   </Label>
                </children>
             </HBox>
-            <TabPane layoutX="25.0" layoutY="172.0" prefHeight="339.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="25.0">
+            <TabPane layoutX="25.0" layoutY="172.0" prefHeight="345.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.rightAnchor="25.0">
                <tabs>
-                  <Tab style="-fx-font-size: 22;" styleClass="forecast" text="4-day Forecast">
+                  <Tab style="-fx-font-size: 22; -fx-cursor: hand;" styleClass="forecast" text="4-day Forecast">
                      <content>
-                        <HBox prefHeight="302.0" prefWidth="354.0" styleClass="container" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <HBox fx:id="secondCityWeatherItemsContainer1" prefHeight="158.0" prefWidth="376.0" />
+                              <HBox fx:id="secondCityWeatherItemsContainer2" layoutY="155.0" prefHeight="158.5" prefWidth="376.0" />
+                           </children>
+                        </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab style="-fx-font-size: 22;" styleClass="second" text="Current weather">
+                  <Tab style="-fx-font-size: 22; -fx-cursor: hand;" styleClass="current" text="Current weather">
                      <content>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="second" />
+                        <AnchorPane fx:id="secondCityCurrentWeatherItemContainer" prefHeight="200.0" prefWidth="200.0" styleClass="current" />
                      </content>
                   </Tab>
                </tabs>
             </TabPane>
             <HBox layoutX="14.0" layoutY="58.0" prefHeight="93.0" prefWidth="376.0">
                <children>
-                  <TextField fx:id="secondCityName" prefHeight="50.0" prefWidth="200.0">
+                  <TextField fx:id="secondCityName" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 25;">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
@@ -154,7 +159,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="190.0" fitWidth="184.0" layoutX="336.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="137.0" fitWidth="144.0" layoutX="352.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/earth.png" />
          </image>

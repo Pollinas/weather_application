@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 <fx:root alignment="CENTER" prefHeight="158.0" prefWidth="188.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-            <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="155.0" text="Date">
+            <Label fx:id="dateLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="155.0" styleClass="data" text="Date">
       <padding>
          <Insets right="10.0" />
       </padding>
@@ -18,11 +18,11 @@
          <Insets />
       </VBox.margin></Label>
             <ImageView fx:id="weatherIcon" fitHeight="47.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="tempsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="174.0" text="Temps">
+            <Label fx:id="tempsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="174.0" styleClass="data" text="Temps">
       <font>
          <Font name="Consolas" size="25.0" />
       </font></Label>
-            <Label fx:id="descriptionLabel" alignment="CENTER" prefHeight="24.0" prefWidth="193.0" text="Description">
+            <Label fx:id="descriptionLabel" alignment="CENTER" prefHeight="24.0" prefWidth="193.0" styleClass="description" text="Description">
       <font>
          <Font name="Consolas" size="21.0" />
       </font></Label>
