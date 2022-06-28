@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <fx:root alignment="CENTER" prefHeight="337.0" prefWidth="390.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <ImageView fitHeight="160.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../img/sun.png" />
-      </image>
-   </ImageView>
+   <ImageView fx:id="weatherIcon" fitHeight="160.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true" />
         <Label fx:id="temperatureLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="178.0" styleClass="currentData">
       <font>
          <Font size="25.0" />
