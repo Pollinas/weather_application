@@ -12,10 +12,21 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViewFactory {
 
     double x,y =0;
+
+    private boolean isLightMode;
+    private ArrayList<Stage> activeStages;
+    private final static String DARK_MODE_PATH = "/css/darkMode.css";
+    private final static String LIGHT_MODE_PATH = "/css/lightMode.css";
+
+    public ViewFactory() {
+        activeStages = new ArrayList<Stage>();
+    }
+
     public void showMainWindow(){
 
         MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherService()));
@@ -36,6 +47,8 @@ public class ViewFactory {
         }
 
         Scene scene = new Scene(parent);
+        scene.getStylesheets().add(getClass().getResource(DARK_MODE_PATH).toExternalForm());
+        isLightMode = false;
         Stage stage = new Stage(StageStyle.UNDECORATED);
         parent.setOnMousePressed(event -> {
             x = event.getSceneX();
@@ -47,8 +60,9 @@ public class ViewFactory {
         });
 
         stage.setScene(scene);
-
         stage.show();
+
+        activeStages.add(stage);
     }
 
     public Node createWeatherItem(String temps, String description, String date)  {
@@ -76,7 +90,9 @@ public class ViewFactory {
     }
 
     public void closeStage(Stage stageToClose) {
+
         stageToClose.close();
+        activeStages.remove(stageToClose);
     }
 
     public void minimizeStage(Stage stageToMinimize) {
@@ -84,4 +100,25 @@ public class ViewFactory {
     }
 
 
+    public void changeModeInAllWindows() {
+
+        for (Stage stage : activeStages) {
+            Scene scene = stage.getScene();
+
+            if(isLightMode) {
+                updateMode(scene, DARK_MODE_PATH);
+                isLightMode = false;
+            } else {
+                updateMode(scene, LIGHT_MODE_PATH);
+                isLightMode = true;
+            }
+        }
+
+    }
+
+    private void updateMode(Scene scene, String CSSFilePath) {
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(getClass().getResource(CSSFilePath).toExternalForm());
+
+    }
 }

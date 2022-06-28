@@ -52,6 +52,12 @@ public class MainWindowController extends BaseController {
     }
 
     @FXML
+    void changeMode() {
+        viewFactory.changeModeInAllWindows();
+    }
+
+
+    @FXML
     void closeMainWindow() {
         Stage stage = (Stage) firstCityWeatherItemsContainer1.getScene().getWindow();
         viewFactory.closeStage(stage);
