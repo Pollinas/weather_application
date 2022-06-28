@@ -43,9 +43,6 @@
     -fx-background-radius: 20px;
 }
 
-.first{
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
-}
 
 .currentData{
     -fx-font-size: 24px;
