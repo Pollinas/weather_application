@@ -12,140 +12,152 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="869.0" styleClass="main" stylesheets="@../css/universal.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="622.0" prefWidth="870.0" styleClass="main" stylesheets="@../css/darkMode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutX="21.0" layoutY="14.0" prefHeight="45.0" prefWidth="797.0" styleClass="nav" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <HBox layoutX="12.0" prefHeight="82.0" prefWidth="847.0" styleClass="nav" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="56.0" fitWidth="65.0" layoutX="54.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
                <image>
-                  <Image url="@../icons/weather.png" />
+                  <Image url="@../img/day-and-night.png" />
                </image>
                <HBox.margin>
-                  <Insets left="180.0" />
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                </HBox.margin>
             </ImageView>
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="218.0" text="Weather App">
-               <font>
-                  <Font name="Lucida Console" size="28.0" />
-               </font>
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
+               <image>
+                  <Image url="@../img/unknown%20(1).png" />
+               </image>
                <HBox.margin>
-                  <Insets left="5.0" right="150.0" top="10.0" />
+                  <Insets bottom="20.0" left="10.0" right="20.0" top="20.0" />
                </HBox.margin>
-            </Label>
-            <Button layoutX="717.0" layoutY="10.0" mnemonicParsing="false" onAction="#maximizeWindow" prefHeight="54.0" prefWidth="63.0" styleClass="btn" text="o">
-               <font>
-                  <Font name="Lucida Sans Unicode" size="22.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <Button layoutX="719.0" layoutY="10.0" mnemonicParsing="false" onAction="#minimizeMainWindow" prefHeight="54.0" prefWidth="63.0" styleClass="btn" text="-">
-               <font>
-                  <Font name="Lucida Sans Unicode" size="22.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" onMouseClicked="#minimizeMainWindow" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
+               <image>
+                  <Image url="@../img/minimize%20(3).png" />
+               </image>
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets bottom="20.0" left="550.0" right="10.0" top="20.0" />
                </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#closeMainWindow" prefHeight="54.0" prefWidth="63.0" styleClass="btn" text="x">
-               <font>
-                  <Font name="Lucida Sans Unicode" size="22.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="60.0" onMouseClicked="#closeMainWindow" onMousePressed="#closeMainWindow" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
+               <image>
+                  <Image url="@../img/cancel-event.png" />
+               </image>
                <HBox.margin>
-                  <Insets bottom="5.0" left="10.0" right="5.0" />
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                </HBox.margin>
-            </Button>
+            </ImageView>
          </children></HBox>
-      <HBox layoutX="35.0" layoutY="137.0" prefHeight="79.0" prefWidth="396.0" styleClass="container" AnchorPane.leftAnchor="32.0">
+      <AnchorPane layoutX="3.0" layoutY="112.0" prefHeight="517.0" prefWidth="394.0">
          <children>
-            <TextField fx:id="firstCityName" alignment="CENTER" onKeyTyped="#addAutocompletion" prefHeight="35.0" prefWidth="213.0" styleClass="btn">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="30.0" right="10.0" top="20.0" />
-               </HBox.margin></TextField>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#firstCityButtonAction" prefHeight="35.0" prefWidth="99.0" styleClass="btn" text="Search">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Lucida Console" size="17.0" />
-               </font></Button>
+            <HBox layoutX="18.0" layoutY="-13.0" prefHeight="65.0" prefWidth="390.0" AnchorPane.bottomAnchor="488.0" AnchorPane.leftAnchor="18.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="334.0" text="where are you ?" textFill="#ecc191">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="18.0" layoutY="57.0" prefHeight="93.0" prefWidth="390.0" AnchorPane.leftAnchor="18.0">
+               <children>
+                  <TextField fx:id="firstCityName" alignment="CENTER" onKeyTyped="#addAutocompletion" prefHeight="50.0" prefWidth="200.0" style="-fx-font-size: 25;">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#firstCityButtonAction" prefHeight="35.0" prefWidth="100.0" styleClass="btn" text="Search">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="25.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <TabPane layoutX="40.0" layoutY="167.0" prefHeight="339.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="40.0">
+              <tabs>
+                <Tab style="-fx-font-size: 22;" styleClass="forecast" text="4-day Forecast">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <HBox fx:id="weatherItemsContainer1" prefHeight="155.0" prefWidth="376.0" />
+                              <HBox fx:id="weatherItemsContainer2" layoutX="-3.0" layoutY="161.0" prefHeight="156.0" prefWidth="376.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                <Tab style="-fx-font-size: 22px;" styleClass="second" text="Current weather">
+                     <content>
+                        <AnchorPane fx:id="currentWeatherItemContainer" prefHeight="326.0" prefWidth="384.0" styleClass="second" />
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
          </children>
-      </HBox>
-      <HBox layoutX="467.0" layoutY="137.0" prefHeight="45.0" prefWidth="388.0" styleClass="container" AnchorPane.rightAnchor="17.0">
+      </AnchorPane>
+      <AnchorPane layoutX="431.0" layoutY="108.0" prefHeight="497.0" prefWidth="426.0" AnchorPane.rightAnchor="14.0">
          <children>
-            <TextField fx:id="secondCityName" prefHeight="44.0" prefWidth="210.0" style="-fx-border-color: black;" styleClass="btn">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="30.0" right="10.0" top="20.0" />
-               </HBox.margin>
-            </TextField>
-            <Button mnemonicParsing="false" onAction="#secondCityButtonAction" prefHeight="35.0" prefWidth="92.0" styleClass="btn" text="Search">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="Lucida Console" size="17.0" />
-               </font>
-            </Button>
+            <HBox layoutX="50.0" layoutY="-14.0" prefHeight="57.0" prefWidth="376.0" AnchorPane.bottomAnchor="446.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="45.0" prefWidth="334.0" text="your next destination" textFill="#ecc191">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <TabPane layoutX="25.0" layoutY="172.0" prefHeight="339.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="25.0">
+               <tabs>
+                  <Tab style="-fx-font-size: 22;" styleClass="forecast" text="4-day Forecast">
+                     <content>
+                        <HBox prefHeight="302.0" prefWidth="354.0" styleClass="container" />
+                     </content>
+                  </Tab>
+                  <Tab style="-fx-font-size: 22;" styleClass="second" text="Current weather">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="second" />
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <HBox layoutX="14.0" layoutY="58.0" prefHeight="93.0" prefWidth="376.0">
+               <children>
+                  <TextField fx:id="secondCityName" prefHeight="50.0" prefWidth="200.0">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#secondCityButtonAction" prefHeight="35.0" prefWidth="100.0" styleClass="btn" text="search">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="25.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <TabPane layoutX="55.0" layoutY="231.0" prefHeight="339.0" prefWidth="376.0" styleClass="main" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab style="-fx-font-size: 17 px; -fx-font-weight: bold; -fx-border-bottom: 0px;" styleClass="second" text="4-day Forecast">
-               <content>
-                  <HBox fx:id="weatherItemsContainer" prefHeight="302.0" prefWidth="370.0" styleClass="second" />
-               </content>
-          </Tab>
-          <Tab style="-fx-font-size: 17px; -fx-font-weight: bold;" styleClass="first" text="Current weather">
-               <content>
-                  <AnchorPane fx:id="currentWeatherItemContainer" prefHeight="293.0" prefWidth="370.0" styleClass="first" />
-               </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-      <TabPane layoutX="471.0" layoutY="231.0" prefHeight="339.0" prefWidth="376.0" styleClass="main" tabClosingPolicy="UNAVAILABLE">
-         <tabs>
-            <Tab style="-fx-font-size: 17 px; -fx-font-weight: bold;" styleClass="second" text="4-day Forecast">
-               <content>
-                  <HBox prefHeight="302.0" prefWidth="354.0" styleClass="second" />
-               </content>
-            </Tab>
-            <Tab style="-fx-font-size: 17px; -fx-font-weight: bold;" styleClass="first" text="Current weather">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="first" />
-               </content>
-            </Tab>
-         </tabs>
-      </TabPane>
-      <HBox layoutX="34.0" layoutY="74.0" prefHeight="55.0" prefWidth="396.0" styleClass="container">
-         <children>
-            <Label alignment="CENTER" prefHeight="31.0" prefWidth="364.0" styleClass="btn" text="Type below name of the city you are currently in.">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
-      <HBox layoutX="445.0" layoutY="74.0" prefHeight="55.0" prefWidth="402.0" styleClass="container">
-         <children>
-            <Label alignment="CENTER" prefHeight="31.0" prefWidth="364.0" styleClass="btn" text="Type below name of the city you wish to visit.">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
+      </AnchorPane>
+      <ImageView fitHeight="190.0" fitWidth="184.0" layoutX="336.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/earth.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -18,8 +18,9 @@ public class ViewFactory {
     double x,y =0;
     public void showMainWindow(){
 
-        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherMockService()));
+        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherService()));
         initializeStage(controller);
+
     }
 
     private void initializeStage(BaseController controller) {
@@ -46,6 +47,7 @@ public class ViewFactory {
         });
 
         stage.setScene(scene);
+
         stage.show();
     }
 
@@ -81,7 +83,5 @@ public class ViewFactory {
         stageToMinimize.setIconified(true);
     }
 
-    public void maximizeStage(Stage stageToMaximize) {
-        stageToMaximize.setMaximized(true);
-    }
+
 }

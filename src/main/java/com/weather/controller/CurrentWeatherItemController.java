@@ -3,14 +3,9 @@ package com.weather.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-
-import java.io.File;
 import java.io.IOException;
 
-public class CurrentWeatherItemController extends VBox {
+public class CurrentWeatherItemController extends CustomBaseContoller {
 
 
     @FXML
@@ -35,7 +30,6 @@ public class CurrentWeatherItemController extends VBox {
 
     public void setDescription(String description) {
         this.descriptionLabel.setText(description);
-
 
     }
 

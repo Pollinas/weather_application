@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class WeatherItemController extends VBox {
+public class WeatherItemController extends CustomBaseContoller {
 
     @FXML
     private Label dateLabel;
@@ -43,37 +43,59 @@ public class WeatherItemController extends VBox {
     public void setDescription(String description) {
         this.descriptionLabel.setText(description);
 
-        if (descriptionLabel.getText().equals("clear sky")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/sun.png"));
-            setWeatherIcon(image);
-        } else if (descriptionLabel.getText().equals("few clouds")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/cloud-sun.png"));
-            setWeatherIcon(image);
-        } else if (descriptionLabel.getText().equals("scattered clouds")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/cloud.png"));
-            setWeatherIcon(image);
-      }  else if (descriptionLabel.getText().equals("broken clouds") || descriptionLabel.getText().equals("overcast clouds")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/broken-clouds.png"));
-            setWeatherIcon(image);
-       }  else if (descriptionLabel.getText().equals("shower rain")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/shower-rain.png"));
-            setWeatherIcon(image);
-        } else if (descriptionLabel.getText().equals("rain") || descriptionLabel.getText().equals("light rain")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/rain.png"));
-            setWeatherIcon(image);
-        } else if (descriptionLabel.getText().equals("thunderstorm")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/thunderstorm.png"));
-            setWeatherIcon(image);
-       } else if (descriptionLabel.getText().equals("snow")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/snow.png"));
-            setWeatherIcon(image);
-        } else if (descriptionLabel.getText().equals("mist")) {
-            Image image = new Image(getClass().getResourceAsStream("/icons/mist.png"));
-            setWeatherIcon(image);
+        if (isDescriptionLabelMatchingIconDescription("clear sky")) {
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("few clouds") || isDescriptionLabelMatchingIconDescription("few clouds: 11-25%")) {
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("scattered clouds") || isDescriptionLabelMatchingIconDescription("scattered clouds: 25-50%")) {
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("broken clouds") || isDescriptionLabelMatchingIconDescription("overcast clouds")
+                || isDescriptionLabelMatchingIconDescription("broken clouds: 51-84%") || isDescriptionLabelMatchingIconDescription("overcast clouds: 85-100%")) {
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("shower rain") || isDescriptionLabelMatchingIconDescription("light intensity shower rain")
+                || isDescriptionLabelMatchingIconDescription("heavy intensity shower rain") || isDescriptionLabelMatchingIconDescription("ragged shower rain")
+                || isDescriptionLabelMatchingIconDescription("light intensity drizzle") || isDescriptionLabelMatchingIconDescription("drizzle")
+                || isDescriptionLabelMatchingIconDescription("heavy intensity drizzle") || isDescriptionLabelMatchingIconDescription("light intensity drizzle rain")
+                || isDescriptionLabelMatchingIconDescription("drizzle rain") || isDescriptionLabelMatchingIconDescription("heavy intensity drizzle rain")
+                || isDescriptionLabelMatchingIconDescription("shower rain and drizzle") || isDescriptionLabelMatchingIconDescription("heavy shower rain and drizzle")
+                || isDescriptionLabelMatchingIconDescription("shower drizzle")) {
+
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("light rain") || isDescriptionLabelMatchingIconDescription("moderate rain")
+                || isDescriptionLabelMatchingIconDescription("heavy intensity rain") || isDescriptionLabelMatchingIconDescription("very heavy rain")
+                || isDescriptionLabelMatchingIconDescription("extreme rain")) {
+
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("thunderstorm with light rain") || isDescriptionLabelMatchingIconDescription("thunderstorm with rain")
+                || isDescriptionLabelMatchingIconDescription("thunderstorm with heavy rain") || isDescriptionLabelMatchingIconDescription("light thunderstorm")
+                || isDescriptionLabelMatchingIconDescription("thunderstorm") || isDescriptionLabelMatchingIconDescription("heavy thunderstorm")
+                || isDescriptionLabelMatchingIconDescription("ragged thunderstorm") || isDescriptionLabelMatchingIconDescription("thunderstorm with light drizzle")
+                || isDescriptionLabelMatchingIconDescription("thunderstorm with drizzle") || isDescriptionLabelMatchingIconDescription("thunderstorm with heavy drizzle")) {
+
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("freezing rain") || isDescriptionLabelMatchingIconDescription("light snow")
+                || isDescriptionLabelMatchingIconDescription("Snow") || isDescriptionLabelMatchingIconDescription("Heavy snow") || isDescriptionLabelMatchingIconDescription("Sleet")
+                || isDescriptionLabelMatchingIconDescription("Light shower sleet") || isDescriptionLabelMatchingIconDescription("Shower sleet")
+                || isDescriptionLabelMatchingIconDescription("Light rain and snow") || isDescriptionLabelMatchingIconDescription("Rain and snow")
+                || isDescriptionLabelMatchingIconDescription("Light shower snow") || isDescriptionLabelMatchingIconDescription("Shower snow")
+                || isDescriptionLabelMatchingIconDescription("Heavy shower snow")) {
+
+            setWeatherIcon("");
+        } else if (isDescriptionLabelMatchingIconDescription("mist") || isDescriptionLabelMatchingIconDescription("Smoke")
+                || isDescriptionLabelMatchingIconDescription("Haze") || isDescriptionLabelMatchingIconDescription("sand/ dust whirls")
+                || isDescriptionLabelMatchingIconDescription("fog") || isDescriptionLabelMatchingIconDescription("sand")
+                || isDescriptionLabelMatchingIconDescription("dust") || isDescriptionLabelMatchingIconDescription("volcanic ash")
+                || isDescriptionLabelMatchingIconDescription("squalls") || isDescriptionLabelMatchingIconDescription("tornado")) {
+            setWeatherIcon("");
         }
     }
 
-    private void setWeatherIcon(Image image) {
+    private boolean isDescriptionLabelMatchingIconDescription(String iconDescription) {
+        return descriptionLabel.getText().equals(iconDescription);
+    }
+
+    private void setWeatherIcon(String imageName) {
+        Image image = new Image(getClass().getResourceAsStream(imageName));
         weatherIcon.setImage(image);
     }
 
