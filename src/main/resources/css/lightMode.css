@@ -11,16 +11,16 @@
     -fx-border-radius: 40px;
     -fx-background-radius: 40px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
-    //-fx-background-color: #1B3232;
+    -fx-background-color: #FDE6CE;
 }
 
 .nav{
-    //-fx-border-color: #ECC191;
+    -fx-border-color: #2B3F3E;
     -fx-border-width: 0 0 0.5 0;
 }
 
 .btn{
-    //-fx-background-color: #DCDFDD;
+    -fx-background-color: #E5B171;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
     -fx-cursor: hand;
 }
@@ -29,6 +29,14 @@
     -fx-scale-x: 0.9;
     -fx-scale-y: 0.9;
     -fx-scale-z: 0.9;
+}
+
+.minimize{
+    -fx-fill: red;
+}
+
+.lbl{
+    -fx-text-fill: #2B3F3E;
 }
 
 .currentData{
@@ -42,22 +50,18 @@
     -fx-font-size: 21px;
 }
 
-///*////
 .container, .forecast{
-    -fx-background-color: #DCDFDD;
+    -fx-background-color: #CCBCA3;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
 
-.second{
-    -fx-background-color: rgba(104, 141, 141, 0.5);
+.current{
+    -fx-background-color: #888A82;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
 
-.first{
-     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
-}
 
 
 

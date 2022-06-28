@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="622.0" prefWidth="870.0" styleClass="main" stylesheets="@../css/darkMode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="622.0" prefWidth="870.0" styleClass="main" stylesheets="@../css/lightMode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox layoutX="12.0" prefHeight="82.0" prefWidth="847.0" styleClass="nav" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -32,13 +33,17 @@
                   <Insets bottom="20.0" left="10.0" right="20.0" top="20.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" onMouseClicked="#minimizeMainWindow" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
+            <ImageView fitHeight="60.0" fitWidth="60.0" onMouseClicked="#minimizeMainWindow" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../img/minimize%20(3).png" />
                </image>
                <HBox.margin>
                   <Insets bottom="20.0" left="550.0" right="10.0" top="20.0" />
                </HBox.margin>
+               <styleClass>
+                  <String fx:value="icon" />
+                  <String fx:value="minimize" />
+               </styleClass>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" onMouseClicked="#closeMainWindow" onMousePressed="#closeMainWindow" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="icon">
                <image>
@@ -53,7 +58,7 @@
          <children>
             <HBox layoutX="18.0" layoutY="-13.0" prefHeight="65.0" prefWidth="390.0" AnchorPane.bottomAnchor="488.0" AnchorPane.leftAnchor="18.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="334.0" text="where are you ?" textFill="#ecc191">
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="334.0" styleClass="lbl" text="where are you ?" textFill="#ecc191">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -85,7 +90,7 @@
             </HBox>
             <TabPane layoutX="40.0" layoutY="167.0" prefHeight="345.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="40.0">
               <tabs>
-                <Tab style="-fx-font-size: 22; -fx-pointer: hand;" styleClass="forecast" text="4-day Forecast">
+                <Tab style="-fx-font-size: 22; -fx-cursor: hand;" styleClass="forecast" text="4-day Forecast">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -95,7 +100,7 @@
                         </AnchorPane>
                      </content>
                 </Tab>
-                <Tab style="-fx-font-size: 22px; -fx-pointer: hand;" styleClass="current" text="Current weather">
+                <Tab style="-fx-font-size: 22px; -fx-cursor: hand;" styleClass="current" text="Current weather">
                      <content>
                         <AnchorPane fx:id="firstCityCurrentWeatherItemContainer" prefHeight="326.0" prefWidth="384.0" styleClass="current" />
                      </content>
@@ -108,7 +113,7 @@
          <children>
             <HBox layoutX="50.0" layoutY="-14.0" prefHeight="57.0" prefWidth="376.0" AnchorPane.bottomAnchor="446.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="45.0" prefWidth="334.0" text="your next destination" textFill="#ecc191">
+                  <Label alignment="CENTER" prefHeight="45.0" prefWidth="334.0" styleClass="lbl" text="your next destination" textFill="#ecc191">
                      <font>
                         <Font size="37.0" />
                      </font>
@@ -120,7 +125,7 @@
             </HBox>
             <TabPane layoutX="25.0" layoutY="172.0" prefHeight="339.0" prefWidth="376.0" styleClass="container" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="25.0">
                <tabs>
-                  <Tab style="-fx-font-size: 22; -fx-pointer: hand;" styleClass="forecast" text="4-day Forecast">
+                  <Tab style="-fx-font-size: 22; -fx-cursor: hand;" styleClass="forecast" text="4-day Forecast">
                      <content>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -130,7 +135,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab style="-fx-font-size: 22; -fx-pointer: hand;" styleClass="current" text="Current weather">
+                  <Tab style="-fx-font-size: 22; -fx-cursor: hand;" styleClass="current" text="Current weather">
                      <content>
                         <AnchorPane fx:id="secondCityCurrentWeatherItemContainer" prefHeight="200.0" prefWidth="200.0" styleClass="current" />
                      </content>
