@@ -36,7 +36,7 @@ public class WeatherServiceImpl implements WeatherService {
 
         List<Weather> weathers = new ArrayList<>();
         Date currentDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         //getting the closest data to set values to the weather now
         Weather weatherNow = new Weather();

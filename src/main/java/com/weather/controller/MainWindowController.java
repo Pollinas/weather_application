@@ -98,7 +98,7 @@ public class MainWindowController extends BaseController {
 
             //weather for the next four days:
             for (int i = 1; i <= 4; i++) {
-                temps = String.valueOf((int) weathers.get(i).getDayTemperature()) + "°C / " + String.valueOf((int) weathers.get(i).getNightTemperature()) + "°C";
+                temps = String.valueOf((int) weathers.get(i).getDayTemperature()) + "°C  /  " + String.valueOf((int) weathers.get(i).getNightTemperature()) + "°C";
                 description = weathers.get(i).getDescription();
                 String date = weathers.get(i).getDate();
                 Node node = viewFactory.createWeatherItem(temps, description, date);

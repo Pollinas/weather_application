@@ -48,12 +48,17 @@
 }
 
 .currentData{
-    -fx-font-size: 24px;
+    -fx-font-size: 50px;
 }
 
 .data{
     -fx-font-size: 25px;
 }
+
+.date{
+    -fx-underline:true;
+}
+
 .description{
     -fx-font-size: 21px;
 }
