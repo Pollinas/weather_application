@@ -58,6 +58,7 @@ public class WeatherServiceImpl implements WeatherService {
                 int hours = Integer.parseInt(DATE_FORMAT_HOUR.format(date));
 
                 if (dayDateOnly.equals(dateOnly) && isNoon(hours)) {
+                    weather.setDate(dateOnly);
                     weather.setDescription(dailyWeather.getWeatherDescription().get(0).getDescription());
                     weather.setDayTemperature(dailyWeather.getMain().getTemp());
                 }

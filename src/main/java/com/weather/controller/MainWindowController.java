@@ -4,11 +4,14 @@ import com.weather.controller.service.WeatherService;
 import com.weather.model.Weather;
 import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
+
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.util.List;
 
@@ -47,9 +50,8 @@ public class MainWindowController extends BaseController {
     private AnchorPane secondCityCurrentWeatherItemContainer;
 
     @FXML
-    void addAutocompletion() {
-        // TextFields.bindAutoCompletion(firstCityName, "Warszawa");
-    }
+    private HBox textInputContainer;
+
 
     @FXML
     void changeMode() {
@@ -91,7 +93,6 @@ public class MainWindowController extends BaseController {
             //current weather:
             String temps = String.valueOf(weathers.get(0).getDayTemperature()) + "°C";
             String description = weathers.get(0).getDescription();
-            String date = String.valueOf(0);
             Node currentWeatherNode = viewFactory.createCurrentWeatherItem(temps, description);
             currentWeatherContainer.getChildren().add(currentWeatherNode);
 
@@ -99,7 +100,7 @@ public class MainWindowController extends BaseController {
             for (int i = 1; i <= 4; i++) {
                 temps = String.valueOf((int) weathers.get(i).getDayTemperature()) + "°C / " + String.valueOf((int) weathers.get(i).getNightTemperature()) + "°C";
                 description = weathers.get(i).getDescription();
-                date = String.valueOf(i);
+                String date = weathers.get(i).getDate();
                 Node node = viewFactory.createWeatherItem(temps, description, date);
 
                 if (i < 3) {
@@ -112,6 +113,22 @@ public class MainWindowController extends BaseController {
             e.printStackTrace();
             viewFactory.showErrorWindow();
         }
+    }
+
+    @FXML
+        // This method is called by the FXMLLoader when initialization is complete
+    void initialize() {
+        listenKey();
+    }
+
+
+    public void listenKey() {
+//        firstCityName.setOnKeyPressed((event) -> {
+//            if(firstCityName.getText().length() > 0){
+//                System.out.println(firstCityName.getText());
+//                TextFields.bindAutoCompletion(firstCityName,"Warszawa", "Wrocław", "Włocławek").setDelay(50);
+//            }
+//        });
     }
 
 }

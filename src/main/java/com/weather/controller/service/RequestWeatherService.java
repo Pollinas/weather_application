@@ -2,10 +2,7 @@ package com.weather.controller.service;
 
 import com.google.gson.Gson;
 import com.weather.Config;
-import com.weather.model.Weather;
 import com.weather.model.dto.WeatherDTO;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 
 import java.io.IOException;
 import java.net.URI;
@@ -13,7 +10,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class RequestWeatherService implements RequestService {
+public class RequestWeatherService implements RequestService  {
     @Override
     public WeatherDTO sendRequestToWeatherAPI(String cityName) {
 
@@ -37,7 +34,6 @@ public class RequestWeatherService implements RequestService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
+
 }

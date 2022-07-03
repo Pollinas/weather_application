@@ -9,37 +9,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="254.0" styleClass="main" stylesheets="@../css/darkMode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="385.0" styleClass="main" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="17.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="182.0" prefWidth="219.0" styleClass="container">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="385.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="247.0" text="Oops..">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="385.0" styleClass="lbl" text="Oops..">
                <font>
-                  <Font name="Lucida Console" size="20.0" />
+                  <Font name="Lucida Console" size="35.0" />
                </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="65.0" prefWidth="369.0" text="You have a typo">
+            <Label alignment="CENTER" prefHeight="49.0" prefWidth="369.0" styleClass="lbl" text="Something went wrong.">
                <font>
-                  <Font name="Lucida Console" size="13.0" />
+                  <Font name="Lucida Console" size="20.0" />
                </font>
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <ImageView fitHeight="92.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="70.0" right="20.0" top="20.0" />
-               </VBox.margin>
-               <image>
-                  <Image url="@../img/rainbow.png" />
-               </image>
-            </ImageView>
          </children>
       </VBox>
-      <Button fx:id="closingButton" layoutX="75.0" layoutY="207.0" mnemonicParsing="false" onAction="#closeErrorWindow" prefHeight="38.0" prefWidth="133.0" styleClass="btn" text="Got it!">
+      <ImageView fitHeight="122.0" fitWidth="200.0" layoutX="132.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/question.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="closingButton" layoutX="129.0" layoutY="264.0" mnemonicParsing="false" onAction="#closeErrorWindow" prefHeight="38.0" prefWidth="129.0" styleClass="btn" text="Got it!">
          <font>
             <Font name="Lucida Console" size="16.0" />
          </font>

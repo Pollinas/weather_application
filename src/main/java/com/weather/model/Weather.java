@@ -6,7 +6,7 @@ public class Weather {
     private double dayTemperature;
     private double nightTemperature;
     private String description;
-    private Date date;
+    private String date;
 
     public double getDayTemperature() {
         return dayTemperature;
@@ -32,11 +32,11 @@ public class Weather {
         this.description = description;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
