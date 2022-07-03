@@ -25,6 +25,7 @@ public class ViewFactory {
 
     public ViewFactory() {
         activeStages = new ArrayList<Stage>();
+        isLightMode = false;
     }
 
     public void showMainWindow(){
@@ -47,8 +48,11 @@ public class ViewFactory {
         }
 
         Scene scene = new Scene(parent);
-        scene.getStylesheets().add(getClass().getResource(DARK_MODE_PATH).toExternalForm());
-        isLightMode = false;
+        if(!isLightMode) {
+            scene.getStylesheets().add(getClass().getResource(DARK_MODE_PATH).toExternalForm());
+        } else {
+            scene.getStylesheets().add(getClass().getResource(LIGHT_MODE_PATH).toExternalForm());
+        }
         Stage stage = new Stage(StageStyle.UNDECORATED);
         parent.setOnMousePressed(event -> {
             x = event.getSceneX();
@@ -90,7 +94,6 @@ public class ViewFactory {
     }
 
     public void closeStage(Stage stageToClose) {
-
         stageToClose.close();
         activeStages.remove(stageToClose);
     }
@@ -102,16 +105,18 @@ public class ViewFactory {
 
     public void changeModeInAllWindows() {
 
-        for (Stage stage : activeStages) {
-            Scene scene = stage.getScene();
-
-            if(isLightMode) {
+        if(isLightMode) {
+            for (Stage stage : activeStages) {
+                Scene scene = stage.getScene();
                 updateMode(scene, DARK_MODE_PATH);
-                isLightMode = false;
-            } else {
-                updateMode(scene, LIGHT_MODE_PATH);
-                isLightMode = true;
             }
+            isLightMode = false;
+        }else {
+            for (Stage stage : activeStages) {
+                Scene scene = stage.getScene();
+                updateMode(scene, LIGHT_MODE_PATH);
+            }
+            isLightMode = true;
         }
 
     }
@@ -119,6 +124,5 @@ public class ViewFactory {
     private void updateMode(Scene scene, String CSSFilePath) {
         scene.getStylesheets().clear();
         scene.getStylesheets().add(getClass().getResource(CSSFilePath).toExternalForm());
-
     }
 }
