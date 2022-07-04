@@ -6,12 +6,10 @@ import com.weather.view.ViewFactory;
 import javafx.fxml.FXML;
 
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import org.controlsfx.control.textfield.TextFields;
 
 import java.util.List;
 
@@ -56,6 +54,12 @@ public class MainWindowController extends BaseController {
     @FXML
     void changeMode() {
         viewFactory.changeModeInAllWindows();
+    }
+
+
+    @FXML
+    void showInfoWindow() {
+        viewFactory.showInfoWindow();
     }
 
 
@@ -115,20 +119,5 @@ public class MainWindowController extends BaseController {
         }
     }
 
-    @FXML
-        // This method is called by the FXMLLoader when initialization is complete
-    void initialize() {
-        listenKey();
-    }
-
-
-    public void listenKey() {
-//        firstCityName.setOnKeyPressed((event) -> {
-//            if(firstCityName.getText().length() > 0){
-//                System.out.println(firstCityName.getText());
-//                TextFields.bindAutoCompletion(firstCityName,"Warszawa", "Wrocław", "Włocławek").setDelay(50);
-//            }
-//        });
-    }
 
 }

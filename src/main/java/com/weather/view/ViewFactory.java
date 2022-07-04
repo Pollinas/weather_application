@@ -93,6 +93,11 @@ public class ViewFactory {
         initializeStage(controller);
     }
 
+    public void showInfoWindow() {
+        InfoWindowController controller = new InfoWindowController("InfoWindow.fxml",this);
+        initializeStage(controller);
+    }
+
     public void closeStage(Stage stageToClose) {
         stageToClose.close();
         activeStages.remove(stageToClose);
