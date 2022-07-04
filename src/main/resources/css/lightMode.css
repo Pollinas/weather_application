@@ -37,6 +37,11 @@
 
 .lbl{
     -fx-text-fill: #2B3F3E;
+    -fx-font-size: 30px;
+}
+
+.errorBtn{
+    -fx-font-size: 25px;
 }
 
 .currentData{

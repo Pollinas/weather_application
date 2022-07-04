@@ -1,12 +1,12 @@
 module com.weather {
 
     requires javafx.fxml;
-    requires javafx.graphics;
     requires javafx.web;
     requires com.google.gson;
     requires java.net.http;
-    requires org.controlsfx.controls;
-    //requires javafx.base;
+    requires javafx.controls;
+    requires javafx.base;
+    requires javafx.graphics;
 
     opens com.weather;
     opens com.weather.view;
@@ -16,6 +16,8 @@ module com.weather {
 
     exports com.weather;
 }
+
+
 
 
 

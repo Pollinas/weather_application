@@ -27,6 +27,11 @@
 
 .lbl{
     -fx-text-fill: #ecc191;
+    -fx-font-size: 30px;
+}
+
+.errorBtn{
+    -fx-font-size: 25px;
 }
 
 .btn:hover, .icon:hover{

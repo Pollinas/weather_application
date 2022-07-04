@@ -29,9 +29,11 @@ public class RequestWeatherService implements RequestService  {
             return weatherDTO;
 
         } catch (InterruptedException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
 
         } catch (IOException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
