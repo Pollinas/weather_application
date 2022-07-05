@@ -36,7 +36,9 @@ public class WeatherServiceImpl implements WeatherService {
     private List<Weather> parseWeatherDTO(WeatherDTO weatherDTO, String timezone) {
 
         List<Weather> weathers = new ArrayList<>();
-        Date currentDate = new Date();
+
+        //getting first date this way to enable using mockService with one set of data
+        Date currentDate = Date.from(Instant.ofEpochSecond(weatherDTO.getList().get(0).getDt()));
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         //getting the closest data to set values to the weather now
