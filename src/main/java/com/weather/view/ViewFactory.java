@@ -16,9 +16,10 @@ import java.util.ArrayList;
 
 public class ViewFactory {
 
-    double x,y =0;
+    double x, y = 0;
 
     private boolean isLightMode;
+    private boolean isTheInfoWindowOpen;
     private ArrayList<Stage> activeStages;
     private final static String DARK_MODE_PATH = "/css/darkMode.css";
     private final static String LIGHT_MODE_PATH = "/css/lightMode.css";
@@ -26,9 +27,10 @@ public class ViewFactory {
     public ViewFactory() {
         activeStages = new ArrayList<Stage>();
         isLightMode = false;
+        isTheInfoWindowOpen = false;
     }
 
-    public void showMainWindow(){
+    public void showMainWindow() {
 
         MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherService()));
         initializeStage(controller);
@@ -40,7 +42,7 @@ public class ViewFactory {
         fxmlLoader.setController(controller);
         Parent parent;
 
-        try{
+        try {
             parent = fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,7 +50,7 @@ public class ViewFactory {
         }
 
         Scene scene = new Scene(parent);
-        if(!isLightMode) {
+        if (!isLightMode) {
             scene.getStylesheets().add(getClass().getResource(DARK_MODE_PATH).toExternalForm());
         } else {
             scene.getStylesheets().add(getClass().getResource(LIGHT_MODE_PATH).toExternalForm());
@@ -56,7 +58,7 @@ public class ViewFactory {
         Stage stage = new Stage(StageStyle.UNDECORATED);
         parent.setOnMousePressed(event -> {
             x = event.getSceneX();
-            y= event.getSceneY();
+            y = event.getSceneY();
         });
         parent.setOnMouseDragged(event -> {
             stage.setX(event.getScreenX() - x);
@@ -69,7 +71,7 @@ public class ViewFactory {
         activeStages.add(stage);
     }
 
-    public Node createWeatherItem(String temps, String description, String date)  {
+    public Node createWeatherItem(String temps, String description, String date) {
 
         WeatherItemController node = new WeatherItemController();
 
@@ -80,7 +82,7 @@ public class ViewFactory {
         return node;
     }
 
-    public Node createCurrentWeatherItem(String temps, String description)  {
+    public Node createCurrentWeatherItem(String temps, String description) {
 
         CurrentWeatherItemController node = new CurrentWeatherItemController();
         node.setDescription(description);
@@ -89,13 +91,16 @@ public class ViewFactory {
     }
 
     public void showErrorWindow() {
-        ErrorWindowController controller = new ErrorWindowController("ErrorWindow.fxml",this);
+        ErrorWindowController controller = new ErrorWindowController("ErrorWindow.fxml", this);
         initializeStage(controller);
     }
 
     public void showInfoWindow() {
-        InfoWindowController controller = new InfoWindowController("InfoWindow.fxml",this);
-        initializeStage(controller);
+        if (!isTheInfoWindowOpen) {
+            isTheInfoWindowOpen = true;
+            InfoWindowController controller = new InfoWindowController("InfoWindow.fxml", this);
+            initializeStage(controller);
+        }
     }
 
     public void closeStage(Stage stageToClose) {
@@ -107,16 +112,19 @@ public class ViewFactory {
         stageToMinimize.setIconified(true);
     }
 
+    public void setIsTheInfoWindowOpen(boolean isTheInfoWindowOpen) {
+        this.isTheInfoWindowOpen = isTheInfoWindowOpen;
+    }
 
     public void changeModeInAllWindows() {
 
-        if(isLightMode) {
+        if (isLightMode) {
             for (Stage stage : activeStages) {
                 Scene scene = stage.getScene();
                 updateMode(scene, DARK_MODE_PATH);
             }
             isLightMode = false;
-        }else {
+        } else {
             for (Stage stage : activeStages) {
                 Scene scene = stage.getScene();
                 updateMode(scene, LIGHT_MODE_PATH);
