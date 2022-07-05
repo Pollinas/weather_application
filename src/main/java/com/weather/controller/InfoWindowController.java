@@ -16,6 +16,7 @@ public class InfoWindowController extends BaseController{
 
     @FXML
     void closeInfoWindow() {
+        viewFactory.setIsTheInfoWindowOpen(false);
         Stage stage = (Stage) closingButton.getScene().getWindow();
         viewFactory.closeStage(stage);
     }
