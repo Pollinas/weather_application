@@ -5,19 +5,26 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class WeatherServiceImplTest {
 
     WeatherServiceImpl weatherService = new WeatherServiceImpl(new RequestWeatherMockService());
 
+    List<Weather> berlin = weatherService.getWeather("Berlin");
     @Test
-    public void test(){
-        List<Weather> berlin = weatherService.getWeather("Berlin");
+    public void weatherSerciveShouldHaveFiveResults(){
+        assertEquals(5,berlin.size());
+    }
 
-        for(Weather weather: berlin){
-            System.out.println(weather.getDescription());
-            System.out.println(weather.getNightTemperature());
-            System.out.println();
-        }
+    @Test
+    public void firstResultShouldMatchDescriptionClearSky(){
+        assertEquals("clear sky", berlin.get(0).getDescription());
+    }
+
+    @Test
+    public void fiirstResultShouldMatchWeatherTemperatureOf27(){
+        assertEquals(27.26, berlin.get(0).getDayTemperature());
     }
 }

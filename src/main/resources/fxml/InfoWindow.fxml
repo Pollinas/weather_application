@@ -22,7 +22,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="246.0" prefWidth="399.0" styleClass="lbl" text="Insert your current and desired location (closest biggest city) in the corresponding textfields. You will get current weather data and weather forecast for the next 4 days." wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="246.0" prefWidth="399.0" styleClass="lbl" text="Insert your current and desired location (closest bigger city) in the corresponding textfields. You will get current weather data and weather forecast for the next 4 days." wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
