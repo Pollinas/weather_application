@@ -2,6 +2,8 @@ package com.weather.controller.service;
 
 import com.google.gson.Gson;
 import com.weather.Config;
+import com.weather.exception.IncorrectHttpClientException;
+import com.weather.exception.MissingApiKeyException;
 import com.weather.model.dto.WeatherDTO;
 
 import java.io.IOException;
@@ -11,28 +13,44 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class RequestWeatherService implements RequestService  {
+
+    private Config config;
+    private HttpClient client;
+
+    public RequestWeatherService(Config config, HttpClient client) {
+
+        this.config = config;
+        this.client = client;
+    }
+
     @Override
     public WeatherDTO sendRequestToWeatherAPI(String cityName) {
 
-        String API_KEY = Config.getAPI_KEY();
-
-        var client = HttpClient.newHttpClient();
+        String API_KEY = getApiKey();
 
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create(String.format("https://api.openweathermap.org/data/2.5/forecast?q=%s&appid=%s&units=metric", cityName, API_KEY)))
                 .GET()
                 .build();
 
+        HttpResponse<String> response;
         try {
-            var response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            WeatherDTO weatherDTO = new Gson().fromJson(response.body(), WeatherDTO.class);
-            return weatherDTO;
+            response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        } catch (InterruptedException | IOException e) {
+            throw new IncorrectHttpClientException(e);
+        }
+        return new Gson().fromJson(response.body(), WeatherDTO.class);
+    }
 
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-
+    private String getApiKey() {
+        try {
+            String key = config.getApiKey();
+            if(key == null)
+                throw new MissingApiKeyException("Missing API key for openweather API");
+            return key;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            throw new MissingApiKeyException("Missing API key for openweather API");
         }
     }
 

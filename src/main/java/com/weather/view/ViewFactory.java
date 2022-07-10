@@ -1,5 +1,6 @@
 package com.weather.view;
 
+import com.weather.Config;
 import com.weather.controller.*;
 import com.weather.controller.service.RequestWeatherMockService;
 import com.weather.controller.service.RequestWeatherService;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.util.ArrayList;
 
 public class ViewFactory {
@@ -32,7 +34,10 @@ public class ViewFactory {
 
     public void showMainWindow() {
 
-        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", new WeatherServiceImpl(new RequestWeatherService()));
+        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml",
+                new WeatherServiceImpl(
+                        new RequestWeatherService(
+                                new Config(), HttpClient.newHttpClient())));
         initializeStage(controller);
 
     }
