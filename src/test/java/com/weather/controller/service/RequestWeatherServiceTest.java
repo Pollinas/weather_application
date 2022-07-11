@@ -3,7 +3,6 @@ package com.weather.controller.service;
 import com.weather.Config;
 import com.weather.exception.IncorrectHttpClientException;
 import com.weather.exception.MissingApiKeyException;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
