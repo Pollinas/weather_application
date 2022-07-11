@@ -1,6 +1,5 @@
 package com.weather.model;
 
-import java.util.Date;
 
 public class Weather {
     private double dayTemperature;

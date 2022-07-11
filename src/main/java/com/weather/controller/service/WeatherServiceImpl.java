@@ -27,9 +27,7 @@ public class WeatherServiceImpl implements WeatherService {
         WeatherDTO weatherDTO = requestWeatherService.sendRequestToWeatherAPI(cityName);
         String timezone = weatherDTO.getCity().getTimezone();
 
-        List<Weather> weathers = parseWeatherDTO(weatherDTO, timezone);
-
-        return weathers;
+        return parseWeatherDTO(weatherDTO, timezone);
 
     }
 
@@ -76,7 +74,7 @@ public class WeatherServiceImpl implements WeatherService {
 
 
     private boolean isMidnight(int hours) {
-        return hours == 00;
+        return hours == 0;
     }
 
     private boolean isNoon(int hours) {

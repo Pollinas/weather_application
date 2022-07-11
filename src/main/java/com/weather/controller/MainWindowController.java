@@ -95,14 +95,14 @@ public class MainWindowController extends BaseController {
         try {
             List<Weather> weathers = weatherService.getWeather(textField.getText());
             //current weather:
-            String temps = String.valueOf(weathers.get(0).getDayTemperature()) + "°C";
+            String temps = weathers.get(0).getDayTemperature() + "°C";
             String description = weathers.get(0).getDescription();
             Node currentWeatherNode = viewFactory.createCurrentWeatherItem(temps, description);
             currentWeatherContainer.getChildren().add(currentWeatherNode);
 
             //weather for the next four days:
             for (int i = 1; i <= 4; i++) {
-                temps = String.valueOf((int) weathers.get(i).getDayTemperature()) + "°C  /  " + String.valueOf((int) weathers.get(i).getNightTemperature()) + "°C";
+                temps = (int) weathers.get(i).getDayTemperature() + "°C  /  " + (int) weathers.get(i).getNightTemperature() + "°C";
                 description = weathers.get(i).getDescription();
                 String date = weathers.get(i).getDate();
                 Node node = viewFactory.createWeatherItem(temps, description, date);
