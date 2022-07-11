@@ -14,7 +14,7 @@ class WeatherServiceImplTest {
 
     List<Weather> berlin = weatherService.getWeather("Berlin");
     @Test
-    public void weatherSerciveShouldHaveFiveResults(){
+    public void weatherServiceShouldHaveFiveResults(){
         assertEquals(5,berlin.size());
     }
 
@@ -24,7 +24,7 @@ class WeatherServiceImplTest {
     }
 
     @Test
-    public void fiirstResultShouldMatchWeatherTemperatureOf27(){
+    public void firstResultShouldMatchWeatherTemperatureOf27(){
         assertEquals(27.26, berlin.get(0).getDayTemperature());
     }
 }

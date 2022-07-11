@@ -46,10 +46,10 @@ class RequestWeatherServiceTest {
 
     @Test
     void whenConfigThrowsIOExceptionShouldThrowException() throws IOException {
-        //when
+
         when(config.getApiKey()).thenThrow(IOException.class);
 
-        //then
+
         assertThrows(MissingApiKeyException.class, () -> requestService.sendRequestToWeatherAPI(""));
     }
 

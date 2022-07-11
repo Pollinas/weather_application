@@ -2,7 +2,6 @@ package com.weather.view;
 
 import com.weather.Config;
 import com.weather.controller.*;
-import com.weather.controller.service.RequestWeatherMockService;
 import com.weather.controller.service.RequestWeatherService;
 import com.weather.controller.service.WeatherServiceImpl;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +14,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ViewFactory {
 
@@ -27,17 +27,17 @@ public class ViewFactory {
     private final static String LIGHT_MODE_PATH = "/css/lightMode.css";
 
     public ViewFactory() {
-        activeStages = new ArrayList<Stage>();
+        activeStages = new ArrayList<>();
         isLightMode = false;
         isTheInfoWindowOpen = false;
     }
 
     public void showMainWindow() {
 
-        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml",
-                new WeatherServiceImpl(
-                        new RequestWeatherService(
-                                new Config(), HttpClient.newHttpClient())));
+        Config config = new Config();
+        RequestWeatherService requestWeatherService = new RequestWeatherService(config, HttpClient.newHttpClient());
+        WeatherServiceImpl weatherService = new WeatherServiceImpl(requestWeatherService);
+        MainWindowController controller = new MainWindowController(this, "MainWindow.fxml", weatherService);
         initializeStage(controller);
 
     }
@@ -56,9 +56,9 @@ public class ViewFactory {
 
         Scene scene = new Scene(parent);
         if (!isLightMode) {
-            scene.getStylesheets().add(getClass().getResource(DARK_MODE_PATH).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(DARK_MODE_PATH)).toExternalForm());
         } else {
-            scene.getStylesheets().add(getClass().getResource(LIGHT_MODE_PATH).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(LIGHT_MODE_PATH)).toExternalForm());
         }
         Stage stage = new Stage(StageStyle.UNDECORATED);
         parent.setOnMousePressed(event -> {
@@ -141,6 +141,6 @@ public class ViewFactory {
 
     private void updateMode(Scene scene, String CSSFilePath) {
         scene.getStylesheets().clear();
-        scene.getStylesheets().add(getClass().getResource(CSSFilePath).toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(CSSFilePath)).toExternalForm());
     }
 }
