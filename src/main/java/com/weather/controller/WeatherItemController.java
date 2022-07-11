@@ -1,10 +1,8 @@
 package com.weather.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 
-import java.io.IOException;
 
 public class WeatherItemController extends CustomBaseController {
 

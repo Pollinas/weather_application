@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
+import java.util.Objects;
 
 public abstract class CustomBaseController extends VBox {
 
@@ -87,7 +88,7 @@ public abstract class CustomBaseController extends VBox {
 
 
     protected void setWeatherIcon(String imageName) {
-        Image image = new Image(getClass().getResourceAsStream(imageName));
+        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageName)));
         weatherIcon.setImage(image);
     }
 }
