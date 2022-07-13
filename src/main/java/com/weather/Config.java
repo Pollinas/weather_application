@@ -9,9 +9,10 @@ public class Config {
 
     private final static String RESOURCE_FILE = "config.properties";
     private final static String API_KEY = "openweather.api.key";
-    InputStream inputStream;
 
     public String getApiKey() throws IOException {
+
+        InputStream inputStream = null;
 
         try {
             Properties prop = new Properties();
