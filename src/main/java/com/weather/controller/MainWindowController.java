@@ -16,7 +16,10 @@ import java.util.List;
 
 public class MainWindowController extends BaseController {
 
-    private WeatherService weatherService;
+    private final WeatherService weatherService;
+
+    private static final int NUMBER_OF_DAYS = 4;
+    private static final int NUMBER_OF_DAYS_FOR_ONE_HBOX = 2;
 
     public MainWindowController(ViewFactory viewFactory, String fxmlName, WeatherService weatherService) {
         super(fxmlName, viewFactory);
@@ -101,13 +104,13 @@ public class MainWindowController extends BaseController {
             currentWeatherContainer.getChildren().add(currentWeatherNode);
 
             //weather for the next four days:
-            for (int i = 1; i <= 4; i++) {
+            for (int i = 1; i <= NUMBER_OF_DAYS; i++) {
                 temps = (int) weathers.get(i).getDayTemperature() + "°C  /  " + (int) weathers.get(i).getNightTemperature() + "°C";
                 description = weathers.get(i).getDescription();
                 String date = weathers.get(i).getDate();
                 Node node = viewFactory.createWeatherItem(temps, description, date);
 
-                if (i < 3) {
+                if (i <= NUMBER_OF_DAYS_FOR_ONE_HBOX) {
                     weatherContainer1.getChildren().add(node);
                 } else {
                     weatherContainer2.getChildren().add(node);
