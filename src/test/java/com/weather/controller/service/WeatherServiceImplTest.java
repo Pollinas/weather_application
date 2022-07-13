@@ -10,22 +10,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WeatherServiceImplTest {
 
-    WeatherServiceImpl weatherService = new WeatherServiceImpl(new RequestWeatherMockService());
-
-    List<Weather> weathers = weatherService.getWeather("Berlin");
+    private final WeatherServiceImpl weatherService = new WeatherServiceImpl(new RequestWeatherMockService());
 
     @Test
-    public void weatherServiceShouldHaveFiveResults(){
-        assertEquals(5,weathers.size());
+    public void weatherServiceShouldHaveFiveResults() {
+        List<Weather> weathers = weatherService.getWeather("Berlin");
+        assertEquals(5, weathers.size());
     }
 
     @Test
-    public void firstResultShouldMatchDescriptionClearSky(){
+    public void firstResultShouldMatchDescriptionClearSky() {
+        List<Weather> weathers = weatherService.getWeather("Berlin");
         assertEquals("clear sky", weathers.get(0).getDescription());
     }
 
     @Test
-    public void firstResultShouldMatchWeatherTemperatureOf27(){
+    public void firstResultShouldMatchWeatherTemperatureOf27() {
+        List<Weather> weathers = weatherService.getWeather("Berlin");
         assertEquals(27.26, weathers.get(0).getDayTemperature());
     }
 

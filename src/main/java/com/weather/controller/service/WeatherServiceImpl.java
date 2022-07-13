@@ -12,9 +12,10 @@ public class WeatherServiceImpl implements WeatherService {
 
     private static final int DAY_IN_MS = 1000 * 60 * 60 * 24;
     private static final SimpleDateFormat DATE_FORMAT_HOUR = new SimpleDateFormat("HH");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     private static final int NUMBER_OF_DAYS = 4;
 
-    private RequestService requestWeatherService;
+    private final RequestService requestWeatherService;
 
     public WeatherServiceImpl(RequestService requestWeatherService) {
         this.requestWeatherService = requestWeatherService;
@@ -36,7 +37,6 @@ public class WeatherServiceImpl implements WeatherService {
 
         //getting first date this way to enable using mockService with one set of data
         Date currentDate = Date.from(Instant.ofEpochSecond(weatherDTO.getList().get(0).getDt()));
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         //getting the closest data to set values to the weather now
         double dayTemperature = weatherDTO.getList().get(0).getMain().getTemp();
@@ -48,7 +48,7 @@ public class WeatherServiceImpl implements WeatherService {
         for (int j = 0; j < NUMBER_OF_DAYS; j++) {
 
             currentDate = new Date(currentDate.getTime() + DAY_IN_MS);
-            String dayDateOnly = dateFormat.format(currentDate);
+            String dayDateOnly = DATE_FORMAT.format(currentDate);
             String dateForTheDay = null;
             double nightTemperature = 0;
             double dayTemperatureForTheDay = 0;
@@ -56,7 +56,7 @@ public class WeatherServiceImpl implements WeatherService {
 
             for (DailyWeatherDTO dailyWeather : weatherDTO.getList()) {
                 Date date = Date.from(Instant.ofEpochSecond(dailyWeather.getDt()));
-                String dateOnly = dateFormat.format(date);
+                String dateOnly = DATE_FORMAT.format(date);
                 DATE_FORMAT_HOUR.setTimeZone(TimeZone.getTimeZone(timezone));
                 int hours = Integer.parseInt(DATE_FORMAT_HOUR.format(date));
 
@@ -75,14 +75,11 @@ public class WeatherServiceImpl implements WeatherService {
         return weathers;
     }
 
-
     private boolean isMidnight(int hours) {
         return hours == 0;
     }
-
     private boolean isNoon(int hours) {
         return hours == 12;
     }
-
 
 }
