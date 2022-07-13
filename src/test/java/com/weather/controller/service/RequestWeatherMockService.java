@@ -10,13 +10,11 @@ public class RequestWeatherMockService implements RequestService {
     @Override
     public WeatherDTO sendRequestToWeatherAPI(String cityName) {
 
-        //here not sending API request but working with json String instead
-        WeatherDTO weatherDTO = new Gson().fromJson(json, WeatherDTO.class);
-        return weatherDTO;
+        return new Gson().fromJson(json, WeatherDTO.class);
 
     }
 
-    private String json = "{\n" +
+    private static final String json = "{\n" +
             "\"cod\": \"200\",\n" +
             "\"message\": 0,\n" +
             "\"cnt\": 40,\n" +

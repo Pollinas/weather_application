@@ -8,14 +8,16 @@ import com.weather.model.dto.WeatherDTO;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 
 public class RequestWeatherService implements RequestService  {
 
-    private Config config;
-    private HttpClient client;
+    private final Config config;
+    private final HttpClient client;
 
     public RequestWeatherService(Config config, HttpClient client) {
 
@@ -29,7 +31,7 @@ public class RequestWeatherService implements RequestService  {
         String API_KEY = getApiKey();
 
         var httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create(String.format("https://api.openweathermap.org/data/2.5/forecast?q=%s&appid=%s&units=metric", cityName, API_KEY)))
+                .uri(URI.create(String.format("https://api.openweathermap.org/data/2.5/forecast?q=%s&appid=%s&units=metric", URLEncoder.encode(cityName, StandardCharsets.UTF_8), API_KEY)))
                 .GET()
                 .build();
 
@@ -50,7 +52,7 @@ public class RequestWeatherService implements RequestService  {
             return key;
         } catch (IOException e) {
             e.printStackTrace();
-            throw new MissingApiKeyException("Missing API key for openweather API");
+            throw new MissingApiKeyException("Missing API key for openweather API", e);
         }
     }
 

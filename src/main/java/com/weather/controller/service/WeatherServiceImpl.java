@@ -23,7 +23,6 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public List<Weather> getWeather(String cityName) {
 
-        cityName = cityName.replaceAll(" ", "+");
         WeatherDTO weatherDTO = requestWeatherService.sendRequestToWeatherAPI(cityName);
         String timezone = weatherDTO.getCity().getTimezone();
 
