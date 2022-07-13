@@ -14,15 +14,15 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.net.http.HttpClient;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ViewFactory {
 
-    double x, y = 0;
-
     private boolean isLightMode;
     private boolean isTheInfoWindowOpen;
-    private ArrayList<Stage> activeStages;
+    private final List<Stage> activeStages;
     private final static String DARK_MODE_PATH = "/css/darkMode.css";
     private final static String LIGHT_MODE_PATH = "/css/lightMode.css";
 
@@ -61,13 +61,15 @@ public class ViewFactory {
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(LIGHT_MODE_PATH)).toExternalForm());
         }
         Stage stage = new Stage(StageStyle.UNDECORATED);
+        AtomicReference<Double> x = new AtomicReference<>((double) 0);
+        AtomicReference<Double> y = new AtomicReference<>((double) 0);
         parent.setOnMousePressed(event -> {
-            x = event.getSceneX();
-            y = event.getSceneY();
+             x.set(event.getSceneX());
+             y.set(event.getSceneY());
         });
         parent.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - x);
-            stage.setY(event.getScreenY() - y);
+            stage.setX(event.getScreenX() - x.get());
+            stage.setY(event.getScreenY() - y.get());
         });
 
         stage.setScene(scene);
