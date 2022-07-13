@@ -65,7 +65,7 @@ class RequestWeatherServiceTest {
     @Test
     void whenClientIsIncorrectShouldThrowException() throws IOException, InterruptedException {
 
-        when(client.send(any(), any())).thenThrow(IncorrectHttpClientException.class);
+        when(client.send(any(), any())).thenThrow(InterruptedException.class);
         assertThrows(IncorrectHttpClientException.class, () -> requestService.sendRequestToWeatherAPI(""));
     }
 

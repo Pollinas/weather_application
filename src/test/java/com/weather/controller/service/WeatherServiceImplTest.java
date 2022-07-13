@@ -12,19 +12,21 @@ class WeatherServiceImplTest {
 
     WeatherServiceImpl weatherService = new WeatherServiceImpl(new RequestWeatherMockService());
 
-    List<Weather> berlin = weatherService.getWeather("Berlin");
+    List<Weather> weathers = weatherService.getWeather("Berlin");
+
     @Test
     public void weatherServiceShouldHaveFiveResults(){
-        assertEquals(5,berlin.size());
+        assertEquals(5,weathers.size());
     }
 
     @Test
     public void firstResultShouldMatchDescriptionClearSky(){
-        assertEquals("clear sky", berlin.get(0).getDescription());
+        assertEquals("clear sky", weathers.get(0).getDescription());
     }
 
     @Test
     public void firstResultShouldMatchWeatherTemperatureOf27(){
-        assertEquals(27.26, berlin.get(0).getDayTemperature());
+        assertEquals(27.26, weathers.get(0).getDayTemperature());
     }
+
 }
