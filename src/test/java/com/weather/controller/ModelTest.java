@@ -3,8 +3,6 @@ package com.weather.controller;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 
-import java.time.Instant;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,15 +36,13 @@ public class ModelTest {
     @Test
     public void testConversion() {
         Pogoda pogoda = new Gson().fromJson(json, Pogoda.class);
-        System.out.println(Date.from(Instant.ofEpochSecond(pogoda.list.get(0).dt)));
-        System.out.println(pogoda.list.get(0).weather.get(0).description);
         assertEquals("Berlin", pogoda.city.name);
         assertEquals(300.29, pogoda.list.get(0).main.temp);
     }
 
 
 
-    private String json = "\n" +
+    private static final String json = "\n" +
             "{\"cod\":\"200\",\"message\":0,\"cnt\":40,\"list\":[{\n" +
             "\"dt\": 1654452000,\n" +
             "\"main\": {\n" +
