@@ -40,17 +40,20 @@ public class WeatherServiceImpl implements WeatherService {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         //getting the closest data to set values to the weather now
-        Weather weatherNow = new Weather();
-        weatherNow.setDayTemperature(weatherDTO.getList().get(0).getMain().getTemp());
-        weatherNow.setDescription(weatherDTO.getList().get(0).getWeatherDescription().get(0).getDescription());
+        double dayTemperature = weatherDTO.getList().get(0).getMain().getTemp();
+        String description = weatherDTO.getList().get(0).getWeatherDescription().get(0).getDescription();
+        Weather weatherNow = new Weather(dayTemperature, 0, description, currentDate.toString());
         weathers.add(weatherNow);
 
         //setting values to the weather objects for next four days
         for (int j = 0; j < NUMBER_OF_DAYS; j++) {
-            Weather weather = new Weather();
 
             currentDate = new Date(currentDate.getTime() + DAY_IN_MS);
             String dayDateOnly = dateFormat.format(currentDate);
+            String dateForTheDay = null;
+            double nightTemperature = 0;
+            double dayTemperatureForTheDay = 0;
+            String descriptionForTheDay = null;
 
             for (DailyWeatherDTO dailyWeather : weatherDTO.getList()) {
                 Date date = Date.from(Instant.ofEpochSecond(dailyWeather.getDt()));
@@ -59,14 +62,15 @@ public class WeatherServiceImpl implements WeatherService {
                 int hours = Integer.parseInt(DATE_FORMAT_HOUR.format(date));
 
                 if (dayDateOnly.equals(dateOnly) && isNoon(hours)) {
-                    weather.setDate(dateOnly);
-                    weather.setDescription(dailyWeather.getWeatherDescription().get(0).getDescription());
-                    weather.setDayTemperature(dailyWeather.getMain().getTemp());
+                    dateForTheDay = dateOnly;
+                    descriptionForTheDay = dailyWeather.getWeatherDescription().get(0).getDescription();
+                    dayTemperatureForTheDay = dailyWeather.getMain().getTemp();
                 }
                 if (dayDateOnly.equals(dateOnly) && isMidnight(hours)) {
-                    weather.setNightTemperature(dailyWeather.getMain().getTemp());
+                    nightTemperature = dailyWeather.getMain().getTemp();
                 }
             }
+            Weather weather = new Weather(dayTemperatureForTheDay,nightTemperature,descriptionForTheDay,dateForTheDay);
             weathers.add(weather);
         }
         return weathers;
