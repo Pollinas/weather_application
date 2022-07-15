@@ -21,13 +21,13 @@ class WeatherServiceImplTest {
     @Test
     public void firstResultShouldMatchDescriptionClearSky() {
         List<Weather> weathers = weatherService.getWeather("Berlin");
-        assertEquals("clear sky", weathers.get(0).getDescription());
+        assertEquals("scattered clouds", weathers.get(0).getDescription());
     }
 
     @Test
     public void firstResultShouldMatchWeatherTemperatureOf27() {
         List<Weather> weathers = weatherService.getWeather("Berlin");
-        assertEquals(27.26, weathers.get(0).getDayTemperature());
+        assertEquals(19.97, weathers.get(0).getDayTemperature());
     }
 
 }
